@@ -74,15 +74,69 @@ struct _R {
     var tabbar: RswiftResources.ColorResource { .init(name: "tabbar", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 75 images.
+  /// This `_R.image` struct is generated, and contains static references to 102 images.
   struct image {
     let bundle: Foundation.Bundle
+
+    /// Image `ARE YOU IN LOVE OR ARE YOU MARRIED_ WHAT WILL YOUR CHILDREN LOOK LIKE_`.
+    var areyouinloveorareyoumarried_WHATWILLYOURCHILDRENLOOKLIKE_: RswiftResources.ImageResource { .init(name: "ARE YOU IN LOVE OR ARE YOU MARRIED_ WHAT WILL YOUR CHILDREN LOOK LIKE_", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `CLICK NOW BUT LOOK YOUR CHILD IN THE FUTURE`.
+    var clicknowbutlookyourchildinthefuturE: RswiftResources.ImageResource { .init(name: "CLICK NOW BUT LOOK YOUR CHILD IN THE FUTURE", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Convert two videos posted from you`.
+    var convertTwoVideosPostedFromYou: RswiftResources.ImageResource { .init(name: "Convert two videos posted from you", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Have more 200 template, change your mind now with unique videos`.
+    var haveMore200TemplateChangeYourMindNowWithUniqueVideos: RswiftResources.ImageResource { .init(name: "Have more 200 template, change your mind now with unique videos", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `LET'S ANALYZE YOUR LOVE WITH ARTIFICIAL INTELLIGENCE`.
+    var letsanalyzeyourlovewithartificialintelligencE: RswiftResources.ImageResource { .init(name: "LET'S ANALYZE YOUR LOVE WITH ARTIFICIAL INTELLIGENCE", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Love-Predictions`.
     var lovePredictions: RswiftResources.ImageResource { .init(name: "Love-Predictions", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `MORE`.
+    var morE: RswiftResources.ImageResource { .init(name: "MORE", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Rectangle 4970`.
+    var rectangle4970: RswiftResources.ImageResource { .init(name: "Rectangle 4970", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Rectangle 4971`.
+    var rectangle4971: RswiftResources.ImageResource { .init(name: "Rectangle 4971", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Rectangle 59`.
+    var rectangle59: RswiftResources.ImageResource { .init(name: "Rectangle 59", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Rectangle 60`.
+    var rectangle60: RswiftResources.ImageResource { .init(name: "Rectangle 60", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `START`.
+    var starT: RswiftResources.ImageResource { .init(name: "START", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `SWAP IMAgE WITH VIDEO`.
+    var swapimAgEWITHVIDEO: RswiftResources.ImageResource { .init(name: "SWAP IMAgE WITH VIDEO", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `SWAP ONE IMAGE WITH TEMPLATE`.
+    var swaponeimagewithtemplatE: RswiftResources.ImageResource { .init(name: "SWAP ONE IMAGE WITH TEMPLATE", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `SWAP ONE IMAGE WITH VIDEO TEMPALE`.
+    var swaponeimagewithvideotempalE: RswiftResources.ImageResource { .init(name: "SWAP ONE IMAGE WITH VIDEO TEMPALE", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `Template3`.
     var template3: RswiftResources.ImageResource { .init(name: "Template3", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Untitled-1 1`.
+    var untitled11: RswiftResources.ImageResource { .init(name: "Untitled-1 1", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Video hot trade`.
+    var videoHotTrade: RswiftResources.ImageResource { .init(name: "Video hot trade", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `WHAT WILL YOUR LOVE BE LIKE IN THE FUTURE _`.
+    var whatwillyourlovebelikeinthefuture_: RswiftResources.ImageResource { .init(name: "WHAT WILL YOUR LOVE BE LIKE IN THE FUTURE _", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `What will your face if in the video but you want`.
+    var whatWillYourFaceIfInTheVideoButYouWant: RswiftResources.ImageResource { .init(name: "What will your face if in the video but you want", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `addEvent`.
     var addEvent: RswiftResources.ImageResource { .init(name: "addEvent", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -104,6 +158,24 @@ struct _R {
 
     /// Image `backgroundLove`.
     var backgroundLove: RswiftResources.ImageResource { .init(name: "backgroundLove", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `bgr`.
+    var bgr: RswiftResources.ImageResource { .init(name: "bgr", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `bgr4`.
+    var bgr4: RswiftResources.ImageResource { .init(name: "bgr4", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `bgr5`.
+    var bgr5: RswiftResources.ImageResource { .init(name: "bgr5", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `bgr6`.
+    var bgr6: RswiftResources.ImageResource { .init(name: "bgr6", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `bgrS2I`.
+    var bgrS2I: RswiftResources.ImageResource { .init(name: "bgrS2I", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `button`.
+    var button: RswiftResources.ImageResource { .init(name: "button", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `cancel-icon`.
     var cancelIcon: RswiftResources.ImageResource { .init(name: "cancel-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -134,9 +206,6 @@ struct _R {
 
     /// Image `hoapro`.
     var hoapro: RswiftResources.ImageResource { .init(name: "hoapro", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
-    /// Image `homes2i`.
-    var homes2i: RswiftResources.ImageResource { .init(name: "homes2i", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `howto-1`.
     var howto1: RswiftResources.ImageResource { .init(name: "howto-1", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -171,6 +240,9 @@ struct _R {
     /// Image `icons8-share-50`.
     var icons8Share50: RswiftResources.ImageResource { .init(name: "icons8-share-50", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `install`.
+    var install: RswiftResources.ImageResource { .init(name: "install", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `lineco`.
     var lineco: RswiftResources.ImageResource { .init(name: "lineco", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -182,6 +254,9 @@ struct _R {
 
     /// Image `logo_love`.
     var logo_love: RswiftResources.ImageResource { .init(name: "logo_love", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `logohome`.
+    var logohome: RswiftResources.ImageResource { .init(name: "logohome", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `loi-1`.
     var loi1: RswiftResources.ImageResource { .init(name: "loi-1", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -261,6 +336,9 @@ struct _R {
     /// Image `send`.
     var send: RswiftResources.ImageResource { .init(name: "send", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `swap2image`.
+    var swap2image: RswiftResources.ImageResource { .init(name: "swap2image", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `tab_comments`.
     var tab_comments: RswiftResources.ImageResource { .init(name: "tab_comments", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -302,6 +380,9 @@ struct _R {
 
     /// Image `user`.
     var user: RswiftResources.ImageResource { .init(name: "user", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `vector`.
+    var vector: RswiftResources.ImageResource { .init(name: "vector", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.info` struct is generated, and contains static references to 1 properties.
@@ -442,9 +523,75 @@ struct _R {
     var swapFaceMp4: RswiftResources.FileResource { .init(name: "swap-face", pathExtension: "mp4", bundle: bundle, locale: LocaleReference.none) }
   }
 
-  /// This `_R.nib` struct is generated, and contains static references to 45 nibs.
+  /// This `_R.nib` struct is generated, and contains static references to 67 nibs.
   struct nib {
     let bundle: Foundation.Bundle
+
+    /// Nib `Cell0`.
+    var cell0: RswiftResources.NibReference<Cell0> { .init(name: "Cell0", bundle: bundle) }
+
+    /// Nib `Cell1`.
+    var cell1: RswiftResources.NibReference<Cell1> { .init(name: "Cell1", bundle: bundle) }
+
+    /// Nib `Cell1Con1`.
+    var cell1Con1: RswiftResources.NibReference<Cell1Con1> { .init(name: "Cell1Con1", bundle: bundle) }
+
+    /// Nib `Cell1Con2`.
+    var cell1Con2: RswiftResources.NibReference<Cell1Con2> { .init(name: "Cell1Con2", bundle: bundle) }
+
+    /// Nib `Cell2`.
+    var cell2: RswiftResources.NibReference<Cell2> { .init(name: "Cell2", bundle: bundle) }
+
+    /// Nib `Cell2Con1`.
+    var cell2Con1: RswiftResources.NibReference<Cell2Con1> { .init(name: "Cell2Con1", bundle: bundle) }
+
+    /// Nib `Cell2Con2`.
+    var cell2Con2: RswiftResources.NibReference<Cell2Con2> { .init(name: "Cell2Con2", bundle: bundle) }
+
+    /// Nib `Cell3`.
+    var cell3: RswiftResources.NibReference<Cell3> { .init(name: "Cell3", bundle: bundle) }
+
+    /// Nib `Cell3Con1`.
+    var cell3Con1: RswiftResources.NibReference<Cell3Con1> { .init(name: "Cell3Con1", bundle: bundle) }
+
+    /// Nib `Cell3Con2`.
+    var cell3Con2: RswiftResources.NibReference<Cell3Con2> { .init(name: "Cell3Con2", bundle: bundle) }
+
+    /// Nib `Cell4`.
+    var cell4: RswiftResources.NibReference<Cell4> { .init(name: "Cell4", bundle: bundle) }
+
+    /// Nib `Cell4Con1`.
+    var cell4Con1: RswiftResources.NibReference<Cell4Con1> { .init(name: "Cell4Con1", bundle: bundle) }
+
+    /// Nib `Cell4Con2`.
+    var cell4Con2: RswiftResources.NibReference<Cell4Con2> { .init(name: "Cell4Con2", bundle: bundle) }
+
+    /// Nib `Cell5`.
+    var cell5: RswiftResources.NibReference<Cell5> { .init(name: "Cell5", bundle: bundle) }
+
+    /// Nib `Cell5Con1`.
+    var cell5Con1: RswiftResources.NibReference<Cell5Con1> { .init(name: "Cell5Con1", bundle: bundle) }
+
+    /// Nib `Cell5Con2`.
+    var cell5Con2: RswiftResources.NibReference<Cell5Con2> { .init(name: "Cell5Con2", bundle: bundle) }
+
+    /// Nib `Cell6`.
+    var cell6: RswiftResources.NibReference<Cell6> { .init(name: "Cell6", bundle: bundle) }
+
+    /// Nib `Cell6Con1`.
+    var cell6Con1: RswiftResources.NibReference<Cell6Con1> { .init(name: "Cell6Con1", bundle: bundle) }
+
+    /// Nib `Cell6Con2`.
+    var cell6Con2: RswiftResources.NibReference<Cell6Con2> { .init(name: "Cell6Con2", bundle: bundle) }
+
+    /// Nib `Cell7`.
+    var cell7: RswiftResources.NibReference<Cell7> { .init(name: "Cell7", bundle: bundle) }
+
+    /// Nib `Cell7Con1`.
+    var cell7Con1: RswiftResources.NibReference<Cell7Con1> { .init(name: "Cell7Con1", bundle: bundle) }
+
+    /// Nib `Cell7Con2`.
+    var cell7Con2: RswiftResources.NibReference<Cell7Con2> { .init(name: "Cell7Con2", bundle: bundle) }
 
     /// Nib `ChangerAvatarViewController`.
     var changerAvatarViewController: RswiftResources.NibReference<UIKit.UIView> { .init(name: "ChangerAvatarViewController", bundle: bundle) }
@@ -582,6 +729,44 @@ struct _R {
     var videoTemplateCLVCell: RswiftResources.NibReference<VideoTemplateCLVCell> { .init(name: "VideoTemplateCLVCell", bundle: bundle) }
 
     func validate() throws {
+      if UIKit.UIImage(named: "logohome", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'logohome' is used in nib 'Cell0', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "vector", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'vector' is used in nib 'Cell0', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Untitled-1 1", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Untitled-1 1' is used in nib 'Cell1Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "LET'S ANALYZE YOUR LOVE WITH ARTIFICIAL INTELLIGENCE", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'LET'S ANALYZE YOUR LOVE WITH ARTIFICIAL INTELLIGENCE' is used in nib 'Cell1Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "START", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'START' is used in nib 'Cell1Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "WHAT WILL YOUR LOVE BE LIKE IN THE FUTURE _", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'WHAT WILL YOUR LOVE BE LIKE IN THE FUTURE _' is used in nib 'Cell1Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in nib 'Cell1Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "bgr", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'bgr' is used in nib 'Cell2Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "ARE YOU IN LOVE OR ARE YOU MARRIED_ WHAT WILL YOUR CHILDREN LOOK LIKE_", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'ARE YOU IN LOVE OR ARE YOU MARRIED_ WHAT WILL YOUR CHILDREN LOOK LIKE_' is used in nib 'Cell2Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "CLICK NOW BUT LOOK YOUR CHILD IN THE FUTURE", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'CLICK NOW BUT LOOK YOUR CHILD IN THE FUTURE' is used in nib 'Cell2Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "START", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'START' is used in nib 'Cell2Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in nib 'Cell2Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "bgrS2I", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'bgrS2I' is used in nib 'Cell3Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "START", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'START' is used in nib 'Cell3Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in nib 'Cell3Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "install", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'install' is used in nib 'Cell3Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "swap2image", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'swap2image' is used in nib 'Cell3Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Rectangle 4970", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Rectangle 4970' is used in nib 'Cell4Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Rectangle 4971", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Rectangle 4971' is used in nib 'Cell4Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "bgr4", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'bgr4' is used in nib 'Cell4Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Have more 200 template, change your mind now with unique videos", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Have more 200 template, change your mind now with unique videos' is used in nib 'Cell4Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "START", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'START' is used in nib 'Cell4Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "SWAP ONE IMAGE WITH TEMPLATE", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'SWAP ONE IMAGE WITH TEMPLATE' is used in nib 'Cell4Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in nib 'Cell4Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Rectangle 4970", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Rectangle 4970' is used in nib 'Cell5Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Rectangle 4971", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Rectangle 4971' is used in nib 'Cell5Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "bgr5", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'bgr5' is used in nib 'Cell5Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Convert two videos posted from you", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Convert two videos posted from you' is used in nib 'Cell5Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "START", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'START' is used in nib 'Cell5Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "SWAP IMAgE WITH VIDEO", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'SWAP IMAgE WITH VIDEO' is used in nib 'Cell5Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in nib 'Cell5Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "bgr6", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'bgr6' is used in nib 'Cell6Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "START", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'START' is used in nib 'Cell6Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "SWAP ONE IMAGE WITH VIDEO TEMPALE", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'SWAP ONE IMAGE WITH VIDEO TEMPALE' is used in nib 'Cell6Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "What will your face if in the video but you want", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'What will your face if in the video but you want' is used in nib 'Cell6Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in nib 'Cell6Con2', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Rectangle 59", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Rectangle 59' is used in nib 'Cell7Con1', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Rectangle 60", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Rectangle 60' is used in nib 'Cell7Con2', but couldn't be loaded.") }
       if UIKit.UIImage(named: "search", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'search' is used in nib 'CommentsViewController', but couldn't be loaded.") }
       if UIKit.UIImage(named: "hand-report", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'hand-report' is used in nib 'DetailCommentTableViewCell', but couldn't be loaded.") }
       if UIKit.UIImage(named: "remove-ry-icon", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'remove-ry-icon' is used in nib 'DetailCommentTableViewCell', but couldn't be loaded.") }
@@ -651,7 +836,6 @@ struct _R {
       if UIKit.UIImage(named: "backgroundLoign1", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'backgroundLoign1' is used in nib 'StartViewController', but couldn't be loaded.") }
       if UIKit.UIImage(named: "luonsong", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'luonsong' is used in nib 'StartViewController', but couldn't be loaded.") }
       if UIKit.UIImage(named: "luonsong2", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'luonsong2' is used in nib 'StartViewController', but couldn't be loaded.") }
-      if UIKit.UIImage(named: "homes2i", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'homes2i' is used in nib 'Swap2ImageVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "back", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'back' is used in nib 'SwapVideoDetailVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "love_add", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'love_add' is used in nib 'SwapVideoDetailVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "love_boy", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'love_boy' is used in nib 'SwapVideoDetailVC', but couldn't be loaded.") }

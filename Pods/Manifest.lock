@@ -11,7 +11,7 @@ PODS:
   - SETabView (2.0.0)
   - SnapKit (5.6.0)
   - SwiftKeychainWrapper (4.0.1)
-  - SwiftLint (0.53.0)
+  - SwiftLint (0.54.0)
   - SwiftVideoBackground (3.4.0)
   - Toast-Swift (5.0.1)
   - TrailerPlayer (1.4.8)
@@ -65,7 +65,7 @@ SPEC CHECKSUMS:
   SETabView: 20a3418b1bc61b36d7f6fb9195f1ebb0907bdf35
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
-  SwiftLint: 5ce4d6a8ff83f1b5fd5ad5dbf30965d35af65e44
+  SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
   SwiftVideoBackground: 826e0567c737ded2a211aa309e9951c643695e8f
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TrailerPlayer: 9117cc50a183a6d060ae874552395b37951a6533

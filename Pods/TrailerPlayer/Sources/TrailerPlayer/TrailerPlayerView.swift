@@ -79,7 +79,7 @@ public class TrailerPlayerView: UIView {
         label.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         return label
     }()
-
+    
     public var player: TrailerPlayer?
     private var playerLayer: AVPlayerLayer?
     private var currentPlayingItem: TrailerPlayerItem?
