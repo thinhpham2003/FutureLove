@@ -1,5 +1,5 @@
 //
-//  Cell6.swift
+//  Cell9.swift
 //  FutureLove
 //
 //  Created by Phạm Quý Thịnh on 19/01/2024.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class Cell7: UICollectionViewCell {
+class Cell9: UICollectionViewCell {
     @IBOutlet weak var collectionview: UICollectionView!
-    var cellConNames = ["Cell7Con1", "Cell7Con2", "Cell7Con3", "Cell7Con4"]
+    var cellConNames = ["Cell9Con1", "Cell9Con1", "Cell9Con1", "Cell9Con1"]
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,7 +20,7 @@ class Cell7: UICollectionViewCell {
     }
 
 }
-extension Cell7: UICollectionViewDelegate, UICollectionViewDataSource {
+extension Cell9: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -41,7 +41,8 @@ extension Cell7: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
-extension Cell7: UICollectionViewDelegateFlowLayout{
+extension Cell9: UICollectionViewDelegateFlowLayout{
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }
@@ -50,10 +51,10 @@ extension Cell7: UICollectionViewDelegateFlowLayout{
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if(UIDevice.current.userInterfaceIdiom == .pad){
-            return CGSize(width: UIScreen.main.bounds.width / 4 - 10, height: 365)
+            return CGSize(width: UIScreen.main.bounds.width / 4 - 10, height: 290)
 
         }
-        return CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: 365)
+        return CGSize(width: UIScreen.main.bounds.width/2 - 10, height: 290)
     }
 }
 

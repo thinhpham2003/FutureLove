@@ -9,7 +9,7 @@ import UIKit
 
 class Swap2ImageVC: UIViewController {
     @IBOutlet weak var collectionViewMain: UICollectionView!
-    let cellNames = ["Cell0", "Cell1", "Cell2", "Cell3", "Cell4", "Cell5", "Cell6", "Cell7"]
+    let cellNames = ["Cell0", "Cell1", "Cell2", "Cell3", "Cell4", "Cell5", "Cell6", "Cell7", "Cell8", "Cell9"]
     override func viewDidLoad() {
         super.viewDidLoad()
         let gradientLayer = CAGradientLayer()
