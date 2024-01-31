@@ -26,10 +26,13 @@ class TabbarViewController: SETabViewController {
     
     private func getViewControllers() -> [UIViewController] {
         return [
-            ListSelectSwapVideoVC(nibName: "ListSelectSwapVideoVC", bundle: nil),
+            SwapImageImageVC(nibName: "SwapImageImageVC", bundle: nil),
             HomeViewController(nibName: "HomeViewController", bundle: nil),
-            CommentsViewController(nibName: "CommentsViewController", bundle: nil),
-            LoveViewController(nibName: "LoveViewController", bundle: nil),
+            //CommentsViewController(nibName: "CommentsViewController", bundle: nil),
+            SKLoveVC(nibName: "SKLoveVC", bundle: nil),
+            SwapImageVideoUploadVC(nibName: "SwapImageVideoUploadVC", bundle: nil),
+            //Swap2ImageVC(nibName: "Swap2ImageVC", bundle: nil),
+            SwapImage_VideoTemplateVC(nibName: "SwapImage_VideoTemplateVC", bundle: nil)
         ]
     }
 

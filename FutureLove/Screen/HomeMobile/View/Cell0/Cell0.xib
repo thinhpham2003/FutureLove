@@ -18,27 +18,20 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="logohome" translatesAutoresizingMaskIntoConstraints="NO" id="Rv7-ul-UR1">
-                        <rect key="frame" x="0.0" y="0.3333333333333357" width="126" height="101"/>
+                        <rect key="frame" x="0.0" y="0.0" width="126" height="101"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMd-Tj-14e">
-                        <rect key="frame" x="215" y="50.666666666666664" width="0.0" height="0.0"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="vector" translatesAutoresizingMaskIntoConstraints="NO" id="Hrr-M1-XfL">
-                        <rect key="frame" x="384" y="38" width="26" height="24"/>
+                        <rect key="frame" x="384" y="38.666666666666664" width="26" height="23.666666666666664"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="VMd-Tj-14e" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="9ot-OV-sbQ"/>
-                <constraint firstItem="VMd-Tj-14e" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="GJA-gK-xpM"/>
-                <constraint firstItem="Rv7-ul-UR1" firstAttribute="top" secondItem="VMd-Tj-14e" secondAttribute="bottom" constant="-50.333333333333329" id="TZm-jP-9sy"/>
-                <constraint firstItem="Hrr-M1-XfL" firstAttribute="leading" secondItem="VMd-Tj-14e" secondAttribute="trailing" constant="169" id="XN8-Xy-j4o"/>
-                <constraint firstItem="VMd-Tj-14e" firstAttribute="top" secondItem="Hrr-M1-XfL" secondAttribute="bottom" constant="-11.333333333333336" id="cKg-5E-iWp"/>
-                <constraint firstItem="VMd-Tj-14e" firstAttribute="leading" secondItem="Rv7-ul-UR1" secondAttribute="trailing" constant="89" id="eii-tY-GKm"/>
+                <constraint firstItem="Hrr-M1-XfL" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="O2w-EW-sKu"/>
+                <constraint firstAttribute="trailing" secondItem="Hrr-M1-XfL" secondAttribute="trailing" constant="20" id="OXW-5g-1iA"/>
+                <constraint firstItem="Rv7-ul-UR1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cC0-7Y-G0M"/>
+                <constraint firstItem="Rv7-ul-UR1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mHz-Yo-fJC"/>
+                <constraint firstItem="Hrr-M1-XfL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="38.666666666666664" id="of0-Xc-Yka"/>
             </constraints>
             <connections>
                 <outlet property="image1" destination="Rv7-ul-UR1" id="cDB-yG-Sro"/>

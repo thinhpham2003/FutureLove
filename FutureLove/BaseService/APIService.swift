@@ -260,6 +260,79 @@ class APIService:NSObject {
         }
     }
     
+    func requestTokenThinhGhepDoi(_ url: String,
+                             _ link1: String,
+                             _ link2: String,
+                             param: ApiParam?,
+                             method: ApiMethod,
+                             loading: Bool,
+                             completion: @escaping ApiCompletion)
+    {
+        var request:URLRequest!
+
+        // set method & param
+        if method == .GET {
+            if let token_login: String = KeychainWrapper.standard.string(forKey: "token_login"){
+                let headers: Dictionary = ["link1":link1, "link2": link2 , "Authorization":"Bearer " + token_login]
+                if let paramString = param?.stringFromHttpParameters() {
+                    if let linkPro = "\(url)?\(paramString)".urlEncoded{
+                        request = URLRequest(url: (URL(string:linkPro )!))
+                    }
+                }
+                else {
+                    if let linkPro = "\(url)".urlEncoded{
+                        request = URLRequest(url: (URL(string:"\(url)" )!))
+                    }
+                }
+                request.allHTTPHeaderFields = headers
+            }
+        }
+        else if method == .POST {
+            request = URLRequest(url: URL(string:url)!)
+
+            // content-type
+            let headers: Dictionary = ["Link-detail":"https://www.mngdoom.com/"]
+            request.allHTTPHeaderFields = headers
+
+            do {
+                if let p = param {
+                    request.httpBody = try JSONSerialization.data(withJSONObject: p, options: .prettyPrinted)
+                }
+            } catch { }
+        }
+
+        request.timeoutInterval = 5000
+        request.httpMethod = method.rawValue
+
+        //
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+
+            DispatchQueue.main.async {
+
+                // check for fundamental networking error
+                guard let data = data, error == nil else {
+                    completion(nil, error)
+                    return
+                }
+
+                // check for http errors
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200, let res = response {
+                }
+
+                if let resJson = self.convertToJson(data) {
+                    completion(resJson, nil)
+                }
+                else if let resString = String(data: data, encoding: .utf8) {
+                    completion(resString, error)
+                }
+                else {
+                    completion(nil, error)
+                }
+            }
+        }
+        task.resume()
+    }
+
     func requestTokenGhepDoi(_ url: String,
                              _ link1: String,
                              _ link2: String,
@@ -301,7 +374,7 @@ class APIService:NSObject {
             } catch { }
         }
         
-        request.timeoutInterval = 500
+        request.timeoutInterval = 5000
         request.httpMethod = method.rawValue
         
         //
@@ -357,6 +430,7 @@ class APIService:NSObject {
                 }
                 else {
                     if let linkPro = "\(url)".urlEncoded{
+                        print(url)
                         request = URLRequest(url: (URL(string:"\(url)" )!))
                     }
                 }
@@ -1082,50 +1156,6 @@ class APIService:NSObject {
        }.resume()
     }
 
-    func uploadTwoImages(_ url: String,
-                         firstImage: UIImage,
-                         secondImage: UIImage,
-                         method: ApiMethod,
-                         loading: Bool,
-                         completion: @escaping ApiCompletion)
-    {
-        let form = MultipartForm(parts: [
-            MultipartForm.Part(name: "first_img", data: firstImage.jpegData(compressionQuality: 1)!, filename: "first_img.jpeg", contentType: "image/jpeg"),
-            MultipartForm.Part(name: "second_img", data: secondImage.jpegData(compressionQuality: 1)!, filename: "second_img.jpeg", contentType: "image/jpeg")
-        ])
-
-        var request = URLRequest(url: URL(string: url)!)
-        request.httpMethod = "POST"
-        request.setValue(form.contentType, forHTTPHeaderField: "Content-Type")
-
-        URLSession.shared.uploadTask(with: request, from: form.bodyData) { (data, response, error) in
-            if let error = error {
-                // Xử lý lỗi nếu có
-                completion(nil, error)
-                return
-            }
-
-            // Xử lý dữ liệu và gọi closure theo cách phù hợp với kết quả
-            guard let data = data else {
-                completion(nil, error)
-                return
-            }
-
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                // Xử lý lỗi HTTP nếu có
-                completion(nil, error)
-            } else {
-                // Chuyển đổi dữ liệu nhận được thành JSON hoặc chuỗi và gọi closure
-                if let resJson = self.convertToJson(data) {
-                    completion(resJson, nil)
-                } else if let resString = String(data: data, encoding: .utf8) {
-                    completion(resString, nil)
-                } else {
-                    completion(nil, error)
-                }
-            }
-        }.resume()
-    }
     //
     func ListVideoSwaped(page:Int,closure: @escaping (_ response: [VideoModel], _ error: Error?) -> Void) {
         let linkUrl = "https://metatechvn.store/lovehistory/video/" + String(page)
@@ -1159,14 +1189,14 @@ class APIService:NSObject {
                     var itemAdd:DetailVideoModel = DetailVideoModel()
                     itemAdd = itemAdd.initLoad(data)
                     closure( itemAdd, nil)
-                    
+
                 }else{
                     closure( DetailVideoModel(), nil)
                 }
             }
         }
     }
-    
+
     func RemoveMyAccount(userID:String,password:String,closure: @escaping (_ response: String, _ error: Error?) -> Void) {
         let paramSend:[String: String] = ["password":password]
         let linkUrl = "https://metatechvn.store/deleteuser/" + userID
@@ -1200,6 +1230,51 @@ class APIService:NSObject {
             }
         }
     }
+    
+    func createVideoFromImagesAndVideo(device_them_su_kien:String,id_video:String,ip_them_su_kien:String,id_user:String,link_img:String, ten_video:String,closure: @escaping (_ response: SukienSwapVideo?, _ error: Error?) -> Void) {
+        let newString = link_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+        if let devicePro = device_them_su_kien.urlEncoded{
+            requestTokenFolderGhepDoi("https://lhvn.online/getdata/genvideo?id_video=\(id_video)&device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&image=\(newString)&ten_video=\(ten_video)", linkNam: "", linkNu: "", param: nil, method: .GET, loading: true) { (data, error) in
+                if let data = data as? [String:Any]{
+                    var itemAdd:SukienSwapVideo = SukienSwapVideo()
+                    itemAdd = itemAdd.initLoad(data)
+                    closure( itemAdd, nil)
+
+                }else{
+
+                    closure( SukienSwapVideo(), nil)
+                }
+            }
+        }
+    }
+
+    func createImageFrom2Image(device_them_su_kien:String,ip_them_su_kien:String,id_user:String,link_img1:String, link_img2:String,closure: @escaping (_ response: SukienSwap2Image?, _ error: Error?) -> Void) {
+        let newString1 = link_img1.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+        let newString2 = link_img2.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+        if let devicePro = device_them_su_kien.urlEncoded{
+            //https://thinkdiff.us/getdata/swap/2/image?device_them_su_kien=gdgdg&ip_them_su_kien=dfbdfbd&id_user=3
+            //&image=\(newString)&ten_video=\(ten_video)
+
+            requestTokenThinhGhepDoi("https://thinkdiff.us/getdata/swap/2/image?device_them_su_kien=\(device_them_su_kien)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)", "\(newString1)", "\(newString2)", param: nil, method: .GET, loading: true) { (data, error) in
+               // requestTokenFolderGhepDoi("https://thinkdiff.us/getdata/swap/2/image?device_them_su_kien=\(device_them_su_kien)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)", linkNam: "\(link_img1)", linkNu: "\(link_img2)", param: nil, method: .GET, loading: true){ (data, error) in
+                if let data = data as? [String:Any]{
+                    var itemAdd:SukienSwap2Image = SukienSwap2Image()
+                    itemAdd = itemAdd.initLoad(data)
+                    closure( itemAdd, nil)
+
+                }else{
+
+                    closure( SukienSwap2Image(), nil)
+                }
+            }
+        }
+    }
+
+
+
+
+
+
 
 
 

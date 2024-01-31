@@ -38,20 +38,37 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yD7-DA-AdG">
+                        <rect key="frame" x="33" y="181" width="300" height="34"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QLV-dp-TWU">
+                        <rect key="frame" x="33" y="128" width="300" height="34"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="JzU-J6-1tS" firstAttribute="top" secondItem="6WF-1I-61A" secondAttribute="bottom" constant="34" id="0wp-Yg-ZVT"/>
+                <constraint firstItem="6WF-1I-61A" firstAttribute="leading" secondItem="QLV-dp-TWU" secondAttribute="trailing" constant="-150.33333333333334" id="4r4-m6-lgh"/>
                 <constraint firstItem="6WF-1I-61A" firstAttribute="top" secondItem="cWy-Gk-GzZ" secondAttribute="bottom" constant="18" id="5ot-dW-7V3"/>
                 <constraint firstItem="5LF-vM-A26" firstAttribute="top" secondItem="6WF-1I-61A" secondAttribute="bottom" constant="88" id="KKR-GR-QKV"/>
+                <constraint firstItem="yD7-DA-AdG" firstAttribute="top" secondItem="6WF-1I-61A" secondAttribute="bottom" constant="-1" id="Tly-Cy-zFO"/>
                 <constraint firstItem="6WF-1I-61A" firstAttribute="leading" secondItem="5LF-vM-A26" secondAttribute="trailing" constant="-132.33333333333334" id="WWZ-2e-sp9"/>
+                <constraint firstItem="6WF-1I-61A" firstAttribute="top" secondItem="QLV-dp-TWU" secondAttribute="bottom" constant="20" id="WrI-tK-eGO"/>
                 <constraint firstItem="6WF-1I-61A" firstAttribute="leading" secondItem="yA0-qK-NCt" secondAttribute="trailing" constant="-77.333333333333343" id="e0v-6q-Iqt"/>
                 <constraint firstItem="yA0-qK-NCt" firstAttribute="top" secondItem="6WF-1I-61A" secondAttribute="bottom" constant="99" id="gJS-f2-ifY"/>
                 <constraint firstItem="6WF-1I-61A" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="ibL-lr-W7Q"/>
                 <constraint firstItem="6WF-1I-61A" firstAttribute="leading" secondItem="cWy-Gk-GzZ" secondAttribute="trailing" constant="-148.33333333333334" id="jIi-mN-za3"/>
                 <constraint firstItem="6WF-1I-61A" firstAttribute="top" secondItem="g9L-4y-vM4" secondAttribute="bottom" constant="89" id="kpX-yQ-i6s"/>
                 <constraint firstItem="6WF-1I-61A" firstAttribute="leading" secondItem="g9L-4y-vM4" secondAttribute="trailing" constant="-50.333333333333343" id="kw1-1F-PPo"/>
+                <constraint firstItem="6WF-1I-61A" firstAttribute="leading" secondItem="yD7-DA-AdG" secondAttribute="trailing" constant="-150.33333333333334" id="oFG-FM-a8c"/>
                 <constraint firstItem="6WF-1I-61A" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="owR-0R-Eba"/>
                 <constraint firstItem="6WF-1I-61A" firstAttribute="leading" secondItem="JzU-J6-1tS" secondAttribute="trailing" constant="-148.33333333333334" id="r8B-Xk-sN9"/>
             </constraints>

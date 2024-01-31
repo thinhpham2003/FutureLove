@@ -160,5 +160,9 @@ extension HowToUseVC: UICollectionViewDelegateFlowLayout {
         }
         return CGSize(width: UIScreen.main.bounds.width/6 - 5, height: 130)
     }
+    enum ChooseImageType {
+        case boy
+        case girl
+    }
 }
 

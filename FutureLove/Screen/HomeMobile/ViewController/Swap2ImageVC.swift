@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import SETabView
 
-class Swap2ImageVC: UIViewController {
+class Swap2ImageVC: UIViewController, SETabItemProvider {
+
+    var seTabBarItem: UITabBarItem? {
+        return UITabBarItem(title: "", image: R.image.tab_video(), tag: 0)
+    }
     @IBOutlet weak var collectionViewMain: UICollectionView!
     let cellNames = ["Cell0", "Cell1", "Cell2", "Cell3", "Cell4", "Cell5", "Cell6", "Cell7", "Cell8", "Cell9"]
     override func viewDidLoad() {
@@ -58,11 +63,11 @@ extension Swap2ImageVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension Swap2ImageVC: UICollectionViewDelegateFlowLayout{
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let paddingWidth = (collectionView.frame.size.width - 406) / 2
-        let paddingHeight = (collectionView.frame.size.height - 525) / 2
-        return UIEdgeInsets(top: paddingHeight, left: paddingWidth, bottom: paddingHeight, right: paddingWidth)
-    }
+    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    //        let paddingWidth = (collectionView.frame.size.width - 406) / 2
+    //        let paddingHeight = (collectionView.frame.size.height - 525) / 2
+    //        return UIEdgeInsets(top: paddingHeight, left: paddingWidth, bottom: paddingHeight, right: paddingWidth)
+    //    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }
@@ -70,6 +75,9 @@ extension Swap2ImageVC: UICollectionViewDelegateFlowLayout{
         return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if(indexPath.row == 0){
+            return CGSize(width: UIScreen.main.bounds.width - 10, height: 100)
+        }
         if(UIDevice.current.userInterfaceIdiom == .pad){
             return CGSize(width: UIScreen.main.bounds.width - 10, height: 365)
 

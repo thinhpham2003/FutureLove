@@ -37,9 +37,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        }
 //=======
         //        if AppConstant.userId == nil {
-        let startViewController = Swap2ImageVC()
-        window?.rootViewController = startViewController
-        window?.makeKeyAndVisible()
+
+
+
+//        let startViewController = SwapImageImageVC()
+//        window?.rootViewController = startViewController
+//        window?.makeKeyAndVisible()
+
+
+        
         //        } else {
         //            let viewController = TabbarViewController()
         //            window?.rootViewController = UINavigationController(rootViewController: viewController)

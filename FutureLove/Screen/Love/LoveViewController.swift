@@ -387,9 +387,10 @@ class LoveViewController: BaseViewController, SETabItemProvider {
                    
                         APIService.shared.getEventsAPISuKienNgam(linkNam: OldBoyLink2, linkNu: OldGirlLink2,device: AppConstant.modelName ?? "iphone", ip: AppConstant.IPAddress.asStringOrEmpty(), Id: AppConstant.userId.asStringOrEmpty(), tennam: self.boyNameTextField.text.asStringOrEmpty(), tennu: self.girlNameTextField.text.asStringOrEmpty()){ result, error in
                             if let success = result{
+                                self.navigationController?.pushViewController(vc, animated: false)
                             }
                         }
-                        self.navigationController?.pushViewController(vc, animated: false)
+
                     }
                 }
             }
@@ -625,9 +626,10 @@ extension LoveViewController : UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    enum ChooseImageType {
+        case boy
+        case girl
+    }
 }
 
-enum ChooseImageType {
-    case boy
-    case girl
-}
+
