@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "29BB6818-9467-4795-A019-1012DAC7FB56"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48C7FA37-5EC1-4917-885E-C09B8FD5D2C5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FutureLove/Screen/Love/LoveViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
+            landmarkName = "startEventBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E589106-DA68-4FEF-9779-F005837DFBA6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FutureLove/BaseService/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1267"
+            endingLineNumber = "1267"
+            landmarkName = "createImageFrom2Image(device_them_su_kien:ip_them_su_kien:id_user:link_img1:link_img2:closure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3E589106-DA68-4FEF-9779-F005837DFBA6 - 963042b1c6d85a8e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FutureLove.APIService.createImageFrom2Image(device_them_su_kien: Swift.String, ip_them_su_kien: Swift.String, id_user: Swift.String, link_img1: Swift.String, link_img2: Swift.String, closure: (Swift.Optional&lt;FutureLove.SukienSwap2Image&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FutureLove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thinn/Desktop/COMPANY/FutureLove-main/SourceTree/FutureLove/BaseService/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1267"
+                  endingLineNumber = "1267"
+                  offsetFromSymbolStart = "1280">
+               </Location>
+               <Location
+                  uuid = "3E589106-DA68-4FEF-9779-F005837DFBA6 - 963042b1c6d85a8e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FutureLove.APIService.createImageFrom2Image(device_them_su_kien: Swift.String, ip_them_su_kien: Swift.String, id_user: Swift.String, link_img1: Swift.String, link_img2: Swift.String, closure: (Swift.Optional&lt;FutureLove.SukienSwap2Image&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FutureLove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thinn/Desktop/COMPANY/FutureLove-main/SourceTree/FutureLove/BaseService/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1267"
+                  endingLineNumber = "1267"
+                  offsetFromSymbolStart = "296">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02095CA3-CF18-4CA7-865C-0643242E2ADE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FutureLove/BaseService/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
+            landmarkName = "requestTokenFolderGhepDoi(_:linkNam:linkNu:param:method:loading:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "02095CA3-CF18-4CA7-865C-0643242E2ADE - 6037b5499596d4c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FutureLove.APIService.requestSwapVideoNhapVao(_: Swift.String, linkNam: Swift.String, linkNu: Swift.String, param: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, method: FutureLove.ApiMethod, loading: Swift.Bool, completion: (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FutureLove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thinn/Desktop/COMPANY/FutureLove-main/SourceTree/FutureLove/BaseService/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "421"
+                  endingLineNumber = "421"
+                  offsetFromSymbolStart = "2468">
+               </Location>
+               <Location
+                  uuid = "02095CA3-CF18-4CA7-865C-0643242E2ADE - adeceed1f5ad442e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FutureLove.APIService.requestTokenFolderGhepDoi(_: Swift.String, linkNam: Swift.String, linkNu: Swift.String, param: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, method: FutureLove.ApiMethod, loading: Swift.Bool, completion: (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FutureLove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thinn/Desktop/COMPANY/FutureLove-main/SourceTree/FutureLove/BaseService/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "421"
+                  endingLineNumber = "421"
+                  offsetFromSymbolStart = "756">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7ABE706B-0365-46A9-8556-2028C9D09D09"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FutureLove/BaseService/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1187"
+            endingLineNumber = "1187"
+            landmarkName = "GenVideoSwap(device_them_su_kien:id_video:ip_them_su_kien:id_user:link_img:ten_video:closure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7ABE706B-0365-46A9-8556-2028C9D09D09 - 73514883fec6d93"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FutureLove.APIService.GenVideoSwap(device_them_su_kien: Swift.String, id_video: Swift.String, ip_them_su_kien: Swift.String, id_user: Swift.String, link_img: Swift.String, ten_video: Swift.String, closure: (Swift.Optional&lt;FutureLove.DetailVideoModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FutureLove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thinn/Desktop/COMPANY/FutureLove-main/SourceTree/FutureLove/BaseService/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1187"
+                  endingLineNumber = "1187"
+                  offsetFromSymbolStart = "592">
+               </Location>
+               <Location
+                  uuid = "7ABE706B-0365-46A9-8556-2028C9D09D09 - ef4dd8c4a8f8b72d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FutureLove.APIService.GenVideoSwap(device_them_su_kien: Swift.String, id_video: Swift.String, ip_them_su_kien: Swift.String, id_user: Swift.String, link_img: Swift.String, ten_video: Swift.String, closure: (Swift.Optional&lt;FutureLove.DetailVideoModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FutureLove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thinn/Desktop/COMPANY/FutureLove-main/SourceTree/FutureLove/BaseService/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1188"
+                  endingLineNumber = "1188"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96F7D099-BC80-4D2A-BC42-F12A2F5269EF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FutureLove/BaseService/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1188"
+            endingLineNumber = "1188"
+            landmarkName = "GenVideoSwap(device_them_su_kien:id_video:ip_them_su_kien:id_user:link_img:ten_video:closure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
