@@ -62,6 +62,9 @@
                         <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                         <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="btnStartClick:" destination="-1" eventType="touchUpInside" id="RHL-OU-L4T"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PY-lw-HwE">
                     <rect key="frame" x="196.33333333333334" y="426" width="0.33333333333334281" height="0.0"/>

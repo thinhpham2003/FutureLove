@@ -470,7 +470,68 @@ class APIService:NSObject {
         task.resume()
     }
     
-    
+    func requestVideo(_ url: String,
+                                   videoURL: URL,
+                                   param: ApiParam?,
+                                   method: ApiMethod,
+                                   loading: Bool,
+                                   completion: @escaping ApiCompletion)
+    {
+        var request:URLRequest!
+
+        // set method & param
+        if method == .POST {
+            guard let videoData = try? Data(contentsOf: videoURL) else {
+                print("Failed to load video data")
+                return
+            }
+
+            let form = MultipartForm(parts: [
+                MultipartForm.Part(name: "src_video", data: videoData, filename: "src_video.mp4", contentType: "video/mp4"),
+            ])
+
+            request = URLRequest(url: URL(string:url)!)
+            request.httpMethod = "POST"
+            request.setValue(form.contentType, forHTTPHeaderField: "Content-Type")
+            request.httpBody = form.bodyData
+
+            // Thêm token vào header
+            if let token_login: String = KeychainWrapper.standard.string(forKey: "token_login") {
+                request.addValue("Bearer \(token_login)", forHTTPHeaderField: "Authorization")
+            }
+        }
+
+        request.timeoutInterval = 1000
+
+        //
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+
+            DispatchQueue.main.async {
+
+                // check for fundamental networking error
+                guard let data = data, error == nil else {
+                    completion(nil, error)
+                    return
+                }
+
+                // check for http errors
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200, let res = response {
+                }
+
+                if let resJson = self.convertToJson(data) {
+                    completion(resJson, nil)
+                }
+                else if let resString = String(data: data, encoding: .utf8) {
+                    completion(resString, error)
+                }
+                else {
+                    completion(nil, error)
+                }
+            }
+        }
+        task.resume()
+    }
+
     func requestSwapVideoNhapVao(_ url: String,
                               linkNam: String,
                                 linkNu: String,
@@ -1066,50 +1127,50 @@ class APIService:NSObject {
         }
         // closure("Please Wait To Remove", nil)
     }
-//    func UploadVideoBatKyAndGen(_ url: String,
-//                              videoUpload: UIImage,
-//                              method: ApiMethod,
-//                              loading: Bool,
-//                              completion: @escaping ApiCompletion)
-//    {
-//        let form = MultipartForm(parts: [
-//            MultipartForm.Part(name: "src_vid", data: ImageUpload.jpegData(compressionQuality: 1)!, filename: "src_vid.mp4", contentType: "video/mp4"),
-//        ])
-//
-//        var request = URLRequest(url: URL(string:url)!)
-//        request.httpMethod = "POST"
-//        request.setValue(form.contentType, forHTTPHeaderField: "Content-Type")
-//        var result:(message:String, data:Data?) = (message: "Fail", data: nil)
-//       
-//        URLSession.shared.uploadTask(with: request, from: form.bodyData){ (data, response, error) in
-//            
-//            if let error = error {
-//                 // Error
-//            }
-//            result.data = data
-//            DispatchQueue.main.async {
-//                // check for fundamental networking error
-//                guard let data = data, error == nil else {
-//                    completion(nil, error)
-//                    return
-//                }
-//                // check for http errors
-//                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200, let res = response {
-//                }
-//                if let resJson = self.convertToJson(data) {
-//                    completion(resJson, nil)
-//                }
-//                if let resString = String(data: data, encoding: .utf8) {
-//                    completion(resString, error)
-//                }
-//                else {
-//                    completion(nil, error)
-//                }
-//            }
-//            // Do something after the upload task is complete
-//
-//       }.resume()
-//    }
+    func UploadVideoBatKyAndGen(_ url: String,
+                              videoUpload: UIImage,
+                              method: ApiMethod,
+                              loading: Bool,
+                              completion: @escaping ApiCompletion)
+    {
+        let form = MultipartForm(parts: [
+            MultipartForm.Part(name: "src_vid", data: videoUpload.jpegData(compressionQuality: 1)!, filename: "src_vid.mp4", contentType: "video/mp4"),
+        ])
+
+        var request = URLRequest(url: URL(string:url)!)
+        request.httpMethod = "POST"
+        request.setValue(form.contentType, forHTTPHeaderField: "Content-Type")
+        var result:(message:String, data:Data?) = (message: "Fail", data: nil)
+       
+        URLSession.shared.uploadTask(with: request, from: form.bodyData){ (data, response, error) in
+            
+            if let error = error {
+                 // Error
+            }
+            result.data = data
+            DispatchQueue.main.async {
+                // check for fundamental networking error
+                guard let data = data, error == nil else {
+                    completion(nil, error)
+                    return
+                }
+                // check for http errors
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200, let res = response {
+                }
+                if let resJson = self.convertToJson(data) {
+                    completion(resJson, nil)
+                }
+                if let resString = String(data: data, encoding: .utf8) {
+                    completion(resString, error)
+                }
+                else {
+                    completion(nil, error)
+                }
+            }
+            // Do something after the upload task is complete
+
+       }.resume()
+    }
     ///upload-gensk/{id_user}
     func UploadImagesToGenRieng(_ url: String,
                               ImageUpload: UIImage,
@@ -1154,6 +1215,57 @@ class APIService:NSObject {
             // Do something after the upload task is complete
 
        }.resume()
+    }
+
+    //videoURL là URL đường dẫn của thiết bị, không phải của sever
+    func UploadVideoToGenRieng(_ url: String,
+                               videoURL: URL,
+                               method: ApiMethod,
+                               loading: Bool,
+                               completion: @escaping ApiCompletion)
+    {
+        guard let videoData = try? Data(contentsOf: videoURL) else {
+            print("Failed to load video data")
+            return
+        }
+
+        let form = MultipartForm(parts: [
+            MultipartForm.Part(name: "src_video", data: videoData, filename: "src_video.mp4", contentType: "video/mp4"),
+        ])
+
+        var request = URLRequest(url: URL(string:url)!)
+        request.httpMethod = "POST"
+        request.setValue(form.contentType, forHTTPHeaderField: "Content-Type")
+        var result:(message:String, data:Data?) = (message: "Fail", data: nil)
+
+        URLSession.shared.uploadTask(with: request, from: form.bodyData){ (data, response, error) in
+
+            if let error = error {
+                // Error
+            }
+            result.data = data
+            DispatchQueue.main.async {
+                // check for fundamental networking error
+                guard let data = data, error == nil else {
+                    completion(nil, error)
+                    return
+                }
+                // check for http errors
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200, let res = response {
+                }
+                if let resJson = self.convertToJson(data) {
+                    completion(resJson, nil)
+                }
+                if let resString = String(data: data, encoding: .utf8) {
+                    completion(resString, error)
+                }
+                else {
+                    completion(nil, error)
+                }
+            }
+            // Do something after the upload task is complete
+
+        }.resume()
     }
 
     //
@@ -1235,6 +1347,23 @@ class APIService:NSObject {
         let newString = link_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         if let devicePro = device_them_su_kien.urlEncoded{
             requestTokenFolderGhepDoi("https://lhvn.online/getdata/genvideo?id_video=\(id_video)&device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&image=\(newString)&ten_video=\(ten_video)", linkNam: "", linkNu: "", param: nil, method: .GET, loading: true) { (data, error) in
+                if let data = data as? [String:Any]{
+                    var itemAdd:SukienSwapVideo = SukienSwapVideo()
+                    itemAdd = itemAdd.initLoad(data)
+                    closure( itemAdd, nil)
+
+                }else{
+
+                    closure( SukienSwapVideo(), nil)
+                }
+            }
+        }
+    }
+
+    func createVideoFromImagesAndVideoUpdate(device_them_su_kien:String,videoURL:URL,ip_them_su_kien:String,id_user:String,src_img:String, closure: @escaping (_ response: SukienSwapVideo?, _ error: Error?) -> Void) {
+        let newString = src_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+        if let devicePro = device_them_su_kien.urlEncoded{
+            requestVideo("https://lhvn.online/getdata/genvideo/swap/imagevid?device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&src_img=\(newString)", videoURL: videoURL, param: nil, method: .POST, loading: true){ (data, error) in
                 if let data = data as? [String:Any]{
                     var itemAdd:SukienSwapVideo = SukienSwapVideo()
                     itemAdd = itemAdd.initLoad(data)

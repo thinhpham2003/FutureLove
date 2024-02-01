@@ -7,7 +7,9 @@
 
 import UIKit
 import SETabView
-
+import Photos
+import AVKit
+import AVFoundation
 class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SETabItemProvider {
     var seTabBarItem: UITabBarItem? {
         return UITabBarItem(title: "", image: R.image.tab_video(), tag: 0)
@@ -27,7 +29,7 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
     var image_Data:UIImage = UIImage()
     var video_Data:UIImage = UIImage()
     var imageLink: String = ""
-    var videoLink: String = ""
+    var videoLink: URL?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +48,12 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(imageUpdateTapped(_:)))
         plush2.isUserInteractionEnabled = true
         plush2.addGestureRecognizer(tapGesture2)
+        let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(imageUpdateTapped(_:)))
+        videoUpload.isUserInteractionEnabled = true
+        videoUpload.addGestureRecognizer(tapGesture3)
+        let tapGesture4 = UITapGestureRecognizer(target: self, action: #selector(imageUpdateTapped(_:)))
+        imageUpload.isUserInteractionEnabled = true
+        imageUpload.addGestureRecognizer(tapGesture4)
 
     }
 
@@ -55,16 +63,16 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
             selectedImageView = plush1
             //currentImageType = .first
             uploadImageView = imageUpload
+            showImagePicker()
+        }
+        else if sender.view == plush2 || sender.view == videoUpload {
+            //selectedImageView = plush2
+            //currentImageType = .second
+            //uploadImageView = imageUpload2
+            showVideoPicker()
+        }
 
-        } 
-//        else if sender.view == plush2 || sender.view == imageUpload2 {
-//            selectedImageView = plush2
-//            currentImageType = .second
-//            uploadImageView = imageUpload2
 
-//        }
-
-        showImagePicker()
     }
 
     func showImagePicker() {
@@ -77,50 +85,69 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
         }
 
     }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            // Thay thế ảnh vào ImageView tương ứng
-            //if self.currentImageType == .first {
-                picker.dismiss(animated: true)
-                plush1.isHidden = true
-                self.detectFaces(in: selectedImage)
-//            } else {
-//                picker.dismiss(animated: true)
-//                plush2.isHidden = true
-//                self.detectFaces(in: selectedImage)
-//            }
-            uploadImageView?.image = selectedImage
-            configureImageView(uploadImageView!)
-            picker.dismiss(animated: true, completion: nil)
-        } else {
-            print("Image not found")
+    func showVideoPicker() {
+        let videoPicker = UIImagePickerController()
+        videoPicker.delegate = self
+        videoPicker.sourceType = .photoLibrary
+        videoPicker.mediaTypes = ["public.movie"]
+        videoPicker.allowsEditing = true
+        if let viewController = self.findViewController() {
+            viewController.present(videoPicker, animated: true, completion: nil)
         }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String {
+            if mediaType == "public.image" {
+                // Xử lý khi chọn ảnh
+                if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                    //Thay thế ảnh vào ImageView tương ứng
+                    picker.dismiss(animated: true)
+                    plush1.isHidden = true
+                    self.detectFaces(in: selectedImage)
+                    uploadImageView?.image = selectedImage
+                    configureImageView(uploadImageView!)
+                    picker.dismiss(animated: true, completion: nil)
+                    
+                }
+            } else if mediaType == "public.movie" {
+                // Xử lý khi chọn video
+                guard let url = info[.mediaURL] as? URL else { return }
+
+                // Tạo một AVPlayer để phát video
+                let player = AVPlayer(url: url)
+                print(url)
+                // Tạo một AVPlayerLayer và gán nó cho videoUpload
+                let playerLayer = AVPlayerLayer(player: player)
+                playerLayer.frame = videoUpload.bounds
+                videoUpload.layer.addSublayer(playerLayer)
+                videoLink = url
+                // Bắt đầu phát video
+                player.play()
+                plush2.isHidden = true
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
 
     }
     func detectFaces(in image: UIImage)  {
-
-//        if self.currentImageType == .first {
-            self.imageUpload.image = UIImage(named: "icon-upload")
-            self.uploadGenLoveByImages(is1: true, image_Data: image){data,error in
-                if let data = data as? String{
-                    let Old1Link = data//.replacingOccurrences(of: "/var/www/build_futurelove", with: "https://futurelove.online")
-                    print("1: \(Old1Link)")
-                    self.imageLink = Old1Link
-                }
+        self.imageUpload.image = UIImage(named: "icon-upload")
+        self.uploadGenLoveByImages(is1: true, image_Data: image){data,error in
+            if let data = data as? String{
+                let Old1Link = data//.replacingOccurrences(of: "/var/www/build_futurelove", with: "https://futurelove.online")
+                print("1: \(Old1Link)")
+                self.imageLink = Old1Link
             }
-//        }else{
-//            self.imageUpload2.image = UIImage(named: "icon-upload")
-//            self.uploadGenLoveByImages(is1: false, image_Data: image){data,error in
-//                if let data = data as? String{
-//                    let Old2Link = data//.replacingOccurrences(of: "/var/www/build_futurelove", with: "https://futurelove.online")
-//                    print("2: \(Old2Link)")
-//                    self.image2Link = Old2Link
-//                }
+        }
+    }
+//    func upVideo(in videoURL: URL){
+//        self.uploadGenLoveByVideo(is1: true, videoURL: videoURL){data,error in
+//            if let data = data as? String{
+//                let Old2Link = data//.replacingOccurrences(of: "/var/www/build_futurelove", with: "https://futurelove.online")
+//                print("2: \(Old2Link)")
+//                self.videoLink = Old2Link
 //            }
 //        }
-
-    }
-
+//    }
     func uploadGenLoveByImages(is1:Bool,image_Data:UIImage,completion: @escaping ApiCompletion){
         APIService.shared.UploadImagesToGenRieng("https://metatechvn.store/upload-gensk/" + String(AppConstant.userId ?? 0) + "?type=src_vid", ImageUpload: image_Data,method: .POST, loading: true){data,error in
             print("uploadding")
@@ -128,6 +155,14 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
             print("done")
         }
     }
+//    func uploadGenLoveByVideo(is1:Bool, videoURL: URL, completion: @escaping ApiCompletion){
+//        APIService.shared.UploadVideoToGenRieng("https://metatechvn.store/upload-gensk/" + String(AppConstant.userId ?? 0) + "?type=src_vid", videoURL: videoURL, method: .POST, loading: true){data,error in
+//            print("uploading")
+//            completion(data, nil)
+//            print("done")
+//        }
+//    }
+
 
     private func configureImageView(_ imageView: UIImageView) {
         imageView.layer.cornerRadius = 8 // Half of your desired diameter
@@ -140,5 +175,28 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
     }
 
 
+    @IBAction func btnStartClick(_ sender: Any) {
+        APIService.shared.createVideoFromImagesAndVideoUpdate(device_them_su_kien: AppConstant.modelName ?? "iphone", videoURL: videoLink!, ip_them_su_kien: AppConstant.IPAddress.asStringOrEmpty(), id_user: AppConstant.userId.asStringOrEmpty(), src_img: imageLink){(response, error) in
+            if let error = error {
+                print("Erro create image: \(error)")
+            } else {
+                print("Done \(response)")
+            }
 
+
+        }
+    }
+    
+}
+
+extension SwapImageVideoUploadVC {
+
+    func playVideo(url: URL) {
+        let player = AVPlayer(url: url)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        present(playerViewController, animated: true) {
+            playerViewController.player?.play()
+        }
+    }
 }

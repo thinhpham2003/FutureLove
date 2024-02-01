@@ -138,6 +138,9 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
             print("uploadding")
             completion(data, nil)
             print("done")
+            if let error = error {
+                self.showAlert(title: "Lỗi", message: "Vui lòng tải lên ảnh hợp lệ (Rõ khuôn mặt)")
+            }
         }
     }
     private func configureImageView(_ imageView: UIImageView) {
@@ -157,10 +160,6 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
                 print("Erro create image: \(error)")
             } else {
                 print("Done: \(response)")
-
-                //                if let urlString = response?.link_da_swap{
-                //
-                //                }
 
                 if let urlString = response?.link_da_swap, let url = URL(string: urlString) {
                     URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -196,6 +195,10 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
         backGroundBtnDowload.isHidden = true
     }
     @IBAction func startEventBtn(_ sender: Any){
+        guard let image = imageUpload1.image, let image2 = imageUpload2.image else {
+            showAlert(title: "Lỗi", message: "Vui lòng tải lên đủ ảnh hoặc ảnh hợp lệ")
+            return
+        }
         print(image1Link)
         spinner.center = view.center
         view.addSubview(spinner)

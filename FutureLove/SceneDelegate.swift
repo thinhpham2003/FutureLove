@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 
-//        let startViewController = SwapImageImageVC()
+//        let startViewController = SwapVideoDetailVC()
 //        window?.rootViewController = startViewController
 //        window?.makeKeyAndVisible()
 
