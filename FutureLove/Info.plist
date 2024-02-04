@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleExecutable</key>
+	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Ứng dụng này cần quyền truy cập vào thư viện ảnh của bạn để lưu video.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Ứng dụng này cần quyền truy cập vào thư viện ảnh của bạn để thêm video.</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

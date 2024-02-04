@@ -147,6 +147,32 @@ struct SukienSwapVideo: Codable {
         return self
     }
 }
+struct SukienSwapVideoUpdate: Codable {
+    var id_saved: String?
+    var link_video_goc: String?
+    var link_image: String?
+    var link_vid_da_swap: String?
+    var thoigian_sukien: String?
+    var device_tao_vid: String?
+    var ip_tao_vid: String?
+    var id_user: Int?
+
+    mutating func initLoad(_ json:[String:Any]) -> SukienSwapVideoUpdate {
+        if let data = json["sukien_swap_video"] as? [String: Any] {
+            if let temp = data["id_saved"] as? String { id_saved = temp }
+            if let temp = data["link_video_goc"] as? String { link_video_goc = temp }
+            if let temp = data["link_image"] as? String { link_image = temp }
+            if let temp = data["link_vid_da_swap"] as? String { link_vid_da_swap = temp }
+            if let temp = data["thoigian_sukien"] as? String { thoigian_sukien = temp }
+            if let temp = data["device_tao_vid"] as? String { device_tao_vid = temp }
+            if let temp = data["ip_tao_vid"] as? String { ip_tao_vid = temp }
+            if let temp = data["id_user"] as? Int { id_user = temp }
+        }
+
+        return self
+    }
+}
+
 //"id_saved": "352190473574",
 //"link_src_goc": "/var/www/build_futurelove/image/image_user/236/video/236_vid_47083.jpg",
 //"link_tar_goc": "/var/www/build_futurelove/image/image_user/236/video/236_vid_35532.jpg",

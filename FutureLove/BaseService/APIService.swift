@@ -487,7 +487,7 @@ class APIService:NSObject {
             }
 
             let form = MultipartForm(parts: [
-                MultipartForm.Part(name: "src_video", data: videoData, filename: "src_video.mp4", contentType: "video/mp4"),
+                MultipartForm.Part(name: "src_vid", data: videoData, filename: "src_video.mp4", contentType: "video/mp4"),
             ])
 
             request = URLRequest(url: URL(string:url)!)
@@ -1360,18 +1360,18 @@ class APIService:NSObject {
         }
     }
 
-    func createVideoFromImagesAndVideoUpdate(device_them_su_kien:String,videoURL:URL,ip_them_su_kien:String,id_user:String,src_img:String, closure: @escaping (_ response: SukienSwapVideo?, _ error: Error?) -> Void) {
+    func createVideoFromImagesAndVideoUpdate(device_them_su_kien:String,videoURL:URL,ip_them_su_kien:String,id_user:String,src_img:String, closure: @escaping (_ response: SukienSwapVideoUpdate?, _ error: Error?) -> Void) {
         let newString = src_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         if let devicePro = device_them_su_kien.urlEncoded{
             requestVideo("https://lhvn.online/getdata/genvideo/swap/imagevid?device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&src_img=\(newString)", videoURL: videoURL, param: nil, method: .POST, loading: true){ (data, error) in
                 if let data = data as? [String:Any]{
-                    var itemAdd:SukienSwapVideo = SukienSwapVideo()
+                    var itemAdd:SukienSwapVideoUpdate = SukienSwapVideoUpdate()
                     itemAdd = itemAdd.initLoad(data)
                     closure( itemAdd, nil)
 
                 }else{
 
-                    closure( SukienSwapVideo(), nil)
+                    closure( SukienSwapVideoUpdate(), nil)
                 }
             }
         }

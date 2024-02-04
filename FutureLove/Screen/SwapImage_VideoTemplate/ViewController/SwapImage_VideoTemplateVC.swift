@@ -15,8 +15,10 @@ class SwapImage_VideoTemplateVC: UIViewController, SETabItemProvider {
         }
     @IBOutlet weak var collectionViewMain: UICollectionView!
     var videos : [TempleVideoModel] = []
+    var video: TempleVideoModel = TempleVideoModel()
     let api = APIService()
     var indexSellected = -1
+    var check : Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +48,9 @@ class SwapImage_VideoTemplateVC: UIViewController, SETabItemProvider {
         collectionViewMain.register(UINib(nibName: "SwapImage_VideoTemplateCell", bundle: nil), forCellWithReuseIdentifier: "SwapImage_VideoTemplateCell")
         collectionViewMain.register(UINib(nibName: "CellSwapController", bundle: nil), forCellWithReuseIdentifier: "CellSwapController")
         collectionViewMain.register(UINib(nibName: "CellFirst", bundle: nil), forCellWithReuseIdentifier: "CellFirst")
+        collectionViewMain.register(UINib(nibName: "CellSwap1", bundle: nil), forCellWithReuseIdentifier: "CellSwap1")
+        collectionViewMain.register(UINib(nibName: "CellSwap2", bundle: nil), forCellWithReuseIdentifier: "CellSwap2")
+        collectionViewMain.register(UINib(nibName: "CellSwap3", bundle: nil), forCellWithReuseIdentifier: "CellSwap3")
     }
 
 
@@ -56,6 +61,9 @@ extension SwapImage_VideoTemplateVC: UICollectionViewDelegate, UICollectionViewD
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(!check){
+            return videos.count + 2
+        }
         return videos.count
     }
 
@@ -64,16 +72,36 @@ extension SwapImage_VideoTemplateVC: UICollectionViewDelegate, UICollectionViewD
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellFirst", for: indexPath) as! CellFirst
             return cell
         }
+//        if(indexPath.row == 1){
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellSwap1", for: indexPath) as! CellSwap1
+//            cell.isHidden = check
+//            return cell
+//        }
+//        if(indexPath.row == 2){
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellSwap2", for: indexPath) as! CellSwap2
+//            cell.isHidden = check
+//            return cell
+//        }
+//        if(indexPath.row == 3){
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellSwap3", for: indexPath) as! CellSwap3
+//            cell.isHidden = check
+//            return cell
+//        }
 
-        if(indexPath.row == indexSellected && indexPath.row != 0){
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellSwapController", for: indexPath) as! CellSwapController
+        if(indexPath.row == 1){
 
-            let video = videos[indexPath.item]
-            if let urlString = video.linkThump, let url = URL(string: urlString) {
-                cell.updateImageThumb2(URL(string: video.linkThump!))
+            if(!check){
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellSwapController", for: indexPath) as! CellSwapController
+                let video = video
+                if let urlString = video.linkThump, let url = URL(string: urlString) {
+                    cell.updateImageThumb2(URL(string: video.linkThump!))
+                }
+                cell.setSelectedVideoURL(URL(string: video.linkgoc!), video.id)
+                print("real linkvd \(video.linkgoc!) real id \(video.id)")
+                cell.isHidden = check
+                return cell
             }
-            cell.setSelectedVideoURL(URL(string: video.linkgoc!), video.id)
-            print("real linkvd \(video.linkgoc!) real id \(video.id)")
+
             //            if let urlString = video.linkThump, let url = URL(string: urlString) {
             //                URLSession.shared.dataTask(with: url) { (data, response, error) in
             //                    if let data = data, let image = UIImage(data: data) {
@@ -83,7 +111,7 @@ extension SwapImage_VideoTemplateVC: UICollectionViewDelegate, UICollectionViewD
             //                    }
             //                }.resume()
             //            }
-            return cell
+
         }
         //Load ImageThumb
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SwapImage_VideoTemplateCell", for: indexPath) as! SwapImage_VideoTemplateCell
@@ -109,6 +137,8 @@ extension SwapImage_VideoTemplateVC: UICollectionViewDelegate, UICollectionViewD
         //        }
 
         indexSellected = indexPath.row
+        video = videos[indexPath.item]
+        check = false
         collectionViewMain.reloadData()
 
     }
@@ -135,9 +165,9 @@ extension SwapImage_VideoTemplateVC: UICollectionViewDelegateFlowLayout{
             return CGSize(width: width, height: 101)
 
         }
-        if indexPath.row == indexSellected && indexPath.row != 0 {
+        if indexPath.row == 1 && !check {
             var width = UIScreen.main.bounds.width
-            return CGSize(width: width - 5, height: width * 2)
+            return CGSize(width: width - 5, height: width * 3)
 
         }
         if(UIDevice.current.userInterfaceIdiom == .pad){

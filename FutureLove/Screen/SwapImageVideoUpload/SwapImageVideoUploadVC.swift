@@ -19,20 +19,25 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var plush2: UIImageView!
     @IBOutlet weak var imageUpload: UIImageView!
     @IBOutlet weak var videoUpload: UIView!
+    @IBOutlet weak var videoSwap: UIView!
     @IBOutlet weak var backGroundBtn: UIImageView!
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var btnDownload: UIButton!
+    @IBOutlet weak var backGroundBtnSave: UIImageView!
+    @IBOutlet weak var backGroundBtnDowload: UIImageView!
+    let spinner = UIActivityIndicatorView(style: .large)
+    var player: AVPlayer?
     var uploadImageView: UIImageView?
     var selectedImageView: UIImageView?
-    //var currentImageType: CheckImageType = .first
     var image_Data:UIImage = UIImage()
     var video_Data:UIImage = UIImage()
     var imageLink: String = ""
     var videoLink: URL?
+    var videoLinkSwap: URL?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.unreplaceBtn()
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = UIScreen.main.bounds
         gradientLayer.colors = [
@@ -96,6 +101,7 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
         }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.unreplaceBtn()
         if let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String {
             if mediaType == "public.image" {
                 // Xử lý khi chọn ảnh
@@ -107,7 +113,7 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
                     uploadImageView?.image = selectedImage
                     configureImageView(uploadImageView!)
                     picker.dismiss(animated: true, completion: nil)
-                    
+
                 }
             } else if mediaType == "public.movie" {
                 // Xử lý khi chọn video
@@ -139,15 +145,7 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
             }
         }
     }
-//    func upVideo(in videoURL: URL){
-//        self.uploadGenLoveByVideo(is1: true, videoURL: videoURL){data,error in
-//            if let data = data as? String{
-//                let Old2Link = data//.replacingOccurrences(of: "/var/www/build_futurelove", with: "https://futurelove.online")
-//                print("2: \(Old2Link)")
-//                self.videoLink = Old2Link
-//            }
-//        }
-//    }
+
     func uploadGenLoveByImages(is1:Bool,image_Data:UIImage,completion: @escaping ApiCompletion){
         APIService.shared.UploadImagesToGenRieng("https://metatechvn.store/upload-gensk/" + String(AppConstant.userId ?? 0) + "?type=src_vid", ImageUpload: image_Data,method: .POST, loading: true){data,error in
             print("uploadding")
@@ -155,13 +153,7 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
             print("done")
         }
     }
-//    func uploadGenLoveByVideo(is1:Bool, videoURL: URL, completion: @escaping ApiCompletion){
-//        APIService.shared.UploadVideoToGenRieng("https://metatechvn.store/upload-gensk/" + String(AppConstant.userId ?? 0) + "?type=src_vid", videoURL: videoURL, method: .POST, loading: true){data,error in
-//            print("uploading")
-//            completion(data, nil)
-//            print("done")
-//        }
-//    }
+
 
 
     private func configureImageView(_ imageView: UIImageView) {
@@ -176,17 +168,116 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
 
 
     @IBAction func btnStartClick(_ sender: Any) {
+        guard let image = imageUpload.image, let url = videoLink else {
+            showAlert(title: "Lỗi", message: "Vui lòng tải lên hình ảnh và video hợp lệ")
+            return
+        }
+        print("Start")
+        spinner.center = view.center
+        view.addSubview(spinner)
+        spinner.startAnimating()
         APIService.shared.createVideoFromImagesAndVideoUpdate(device_them_su_kien: AppConstant.modelName ?? "iphone", videoURL: videoLink!, ip_them_su_kien: AppConstant.IPAddress.asStringOrEmpty(), id_user: AppConstant.userId.asStringOrEmpty(), src_img: imageLink){(response, error) in
             if let error = error {
                 print("Erro create image: \(error)")
             } else {
                 print("Done \(response)")
+                self.videoLinkSwap = URL(string: (response?.link_vid_da_swap)!)
+                self.configureCellVideo(with: URL(string: (response?.link_vid_da_swap)!))
+                self.spinner.stopAnimating()
+                self.replaceBtn()
             }
 
 
         }
+
     }
-    
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        let activityController =
+        UIActivityViewController(activityItems: [videoLinkSwap],
+                                 applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView =
+        sender
+        present(activityController, animated: true, completion: nil)
+    }
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        if let videoURL = videoLinkSwap {
+            let downloadTask = URLSession.shared.downloadTask(with: videoURL) { (temporaryURL, response, error) in
+                guard let temporaryURL = temporaryURL else {
+                    print("Lỗi khi tải video: \(error?.localizedDescription ?? "Unknown error")")
+                    return
+                }
+
+                PHPhotoLibrary.shared().performChanges({
+                    let creationRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: temporaryURL)
+                    creationRequest?.creationDate = Date() // Đặt ngày tạo nếu cần
+                }) { saved, error in
+                    if saved {
+                        print("Video đã được lưu thành công vào thư viện ảnh.")
+                    } else {
+                        print("Lỗi khi lưu video: \(error?.localizedDescription ?? "Unknown error")")
+                    }
+                }
+            }
+            downloadTask.resume()
+        }
+
+
+    }
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    func configureCellVideo(with videoURL: URL?) {
+        // Xóa player cũ và các layer liên quan
+        player?.pause()
+        player = nil
+        videoSwap.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+
+        if let videoURL = videoURL {
+            player = AVPlayer(url: videoURL)
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.videoGravity = .resizeAspectFill
+            playerLayer.frame = videoSwap.bounds
+            videoSwap.layer.addSublayer(playerLayer)
+
+            NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlayingvVideo), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+
+            player?.play()
+        }
+    }
+    func replaceBtn(){
+        btnStart.isHidden = true
+        backGroundBtn.isHidden = true
+        btnSave.isHidden = false
+        btnDownload.isHidden = false
+        backGroundBtnSave.isHidden = false
+        backGroundBtnDowload.isHidden = false
+    }
+    func unreplaceBtn(){
+        btnStart.isHidden = false
+        backGroundBtn.isHidden = false
+        btnSave.isHidden = true
+        btnDownload.isHidden = true
+        backGroundBtnSave.isHidden = true
+        backGroundBtnDowload.isHidden = true
+    }
+    @objc func playerDidFinishPlayingvVideo(note: NSNotification) {
+        player?.seek(to: CMTime.zero)
+        player?.play()
+    }
+
+
+    func play() {
+        player?.play()
+    }
+
+    func pause() {
+        player?.pause()
+    }
+
+
 }
 
 extension SwapImageVideoUploadVC {
@@ -198,5 +289,13 @@ extension SwapImageVideoUploadVC {
         present(playerViewController, animated: true) {
             playerViewController.player?.play()
         }
+    }
+}
+extension UIView {
+    func snapshot() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        drawHierarchy(in: bounds, afterScreenUpdates: true)
+        return UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
     }
 }

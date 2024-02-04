@@ -71,7 +71,7 @@ struct _R {
     var tabbar: RswiftResources.ColorResource { .init(name: "tabbar", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 141 images.
+  /// This `_R.image` struct is generated, and contains static references to 142 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -248,6 +248,9 @@ struct _R {
 
     /// Image `Your Image 2`.
     var yourImage2: RswiftResources.ImageResource { .init(name: "Your Image 2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Your Video`.
+    var yourVideo: RswiftResources.ImageResource { .init(name: "Your Video", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `addEvent`.
     var addEvent: RswiftResources.ImageResource { .init(name: "addEvent", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -1064,8 +1067,9 @@ struct _R {
       if UIKit.UIImage(named: "Image (2)", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Image (2)' is used in nib 'SwapImageVideoUploadVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "Rectangle 5089", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Rectangle 5089' is used in nib 'SwapImageVideoUploadVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "Rectangle 5093", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Rectangle 5093' is used in nib 'SwapImageVideoUploadVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Rectangle 5094", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Rectangle 5094' is used in nib 'SwapImageVideoUploadVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "Your Image", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Your Image' is used in nib 'SwapImageVideoUploadVC', but couldn't be loaded.") }
-      if UIKit.UIImage(named: "Your Image 2", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Your Image 2' is used in nib 'SwapImageVideoUploadVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Your Video", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Your Video' is used in nib 'SwapImageVideoUploadVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "eva_swap-outline", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'eva_swap-outline' is used in nib 'SwapImageVideoUploadVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "logohome", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'logohome' is used in nib 'SwapImageVideoUploadVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "vector", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'vector' is used in nib 'SwapImageVideoUploadVC', but couldn't be loaded.") }

@@ -33,6 +33,9 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
     var image_Data_2:UIImage = UIImage()
     var image1Link: String = ""
     var image2Link: String = ""
+    var checkNam: Bool = false
+    var checkNu: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         btnSave.isHidden = true
@@ -118,6 +121,7 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
                     let Old1Link = data//.replacingOccurrences(of: "/var/www/build_futurelove", with: "https://futurelove.online")
                     print("1: \(Old1Link)")
                     self.image1Link = Old1Link
+                    self.checkNam = true
                 }
             }
         }else{
@@ -127,6 +131,7 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
                     let Old2Link = data//.replacingOccurrences(of: "/var/www/build_futurelove", with: "https://futurelove.online")
                     print("2: \(Old2Link)")
                     self.image2Link = Old2Link
+                    self.checkNu = true
                 }
             }
         }
@@ -195,26 +200,24 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
         backGroundBtnDowload.isHidden = true
     }
     @IBAction func startEventBtn(_ sender: Any){
-        guard let image = imageUpload1.image, let image2 = imageUpload2.image else {
+        if(!checkNu && !checkNam){
             showAlert(title: "Lỗi", message: "Vui lòng tải lên đủ ảnh hoặc ảnh hợp lệ")
-            return
         }
-        print(image1Link)
-        spinner.center = view.center
-        view.addSubview(spinner)
-        spinner.startAnimating()
-
-
-        createSwapImage(image1Link: image1Link, image2Link: image2Link){ (resultVideo, error) in
-            if let error = error {
-                //print("Error creating video: \(error)")
-            } else {
-                //print("Video created successfully: \(resultVideo)")
-                // Xử lý kết quả video ở đây
-
+        else{
+            print(image1Link)
+            spinner.center = view.center
+            view.addSubview(spinner)
+            spinner.startAnimating()
+            createSwapImage(image1Link: image1Link, image2Link: image2Link){ (resultVideo, error) in
+                if let error = error {
+                    //print("Error creating video: \(error)")
+                } else {
+                    
+                }
             }
         }
     }
+    
     @IBAction func dowloadEventBtn(_ sender: Any){
         guard let imageUrl = URL(string: imageSwapUrl) else {
             return
