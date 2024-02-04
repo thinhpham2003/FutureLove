@@ -203,21 +203,30 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
         if let videoURL = videoLinkSwap {
             let downloadTask = URLSession.shared.downloadTask(with: videoURL) { (temporaryURL, response, error) in
                 guard let temporaryURL = temporaryURL else {
-                    print("Lỗi khi tải video: \(error?.localizedDescription ?? "Unknown error")")
+                    print("Download failed. Error: \(error?.localizedDescription ?? "Unknown error")")
                     return
                 }
 
-                PHPhotoLibrary.shared().performChanges({
-                    let creationRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: temporaryURL)
-                    creationRequest?.creationDate = Date() // Đặt ngày tạo nếu cần
-                }) { saved, error in
-                    if saved {
-                        print("Video đã được lưu thành công vào thư viện ảnh.")
-                    } else {
-                        print("Lỗi khi lưu video: \(error?.localizedDescription ?? "Unknown error")")
+                // Lưu trữ video vào local storage (ví dụ: Documents directory)
+                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                //let destinationURL = documentsDirectory.appendingPathComponent("downloadedVideo.mp4")
+                let timestamp = Date().timeIntervalSince1970
+                let videoName = "downloadedVideo_\(timestamp).mp4"
+                let destinationURL = documentsDirectory.appendingPathComponent(videoName)
+                do {
+                    try FileManager.default.moveItem(at: temporaryURL, to: destinationURL)
+                    print("Downloaded video saved to: \(destinationURL.absoluteString)")
+
+                    // Lưu video vào thư viện ảnh
+                    if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(destinationURL.path) {
+                        UISaveVideoAtPathToSavedPhotosAlbum(destinationURL.path, nil, nil, nil)
+                        self.showAlert(title: "Thành công", message: "Video được lưu thành công")
                     }
+                } catch {
+                    print("Failed to move downloaded file. Error: \(error.localizedDescription)")
                 }
             }
+
             downloadTask.resume()
         }
 

@@ -11,6 +11,7 @@ class CellSwap2: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var imageNew: UIImageView!
     @IBOutlet weak var btnDownload: UIButton!
     @IBOutlet weak var btnStart: UIButton!
+    let spinner = UIActivityIndicatorView(style: .large)
 
     weak var delegate: CellSwap2Delegate?
 
@@ -111,6 +112,7 @@ class CellSwap2: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
                     }
                     self.btnDownload.isEnabled = true
                 }
+                self.spinner.stopAnimating()
             }
 
         }
@@ -124,6 +126,11 @@ class CellSwap2: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
                 } else {
                     //print("Video created successfully: \(resultVideo)")
                     // Xử lý kết quả video ở đây
+                    if let topViewController = UIApplication.topViewController() {
+                        self.spinner.center = topViewController.view.center
+                        topViewController.view.addSubview(self.spinner)
+                        self.spinner.startAnimating()
+                    }
 
                 }
             }
@@ -137,6 +144,7 @@ class CellSwap2: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
 
         downloadVideo(from: videoURLDownload)
     }
+    
     func downloadVideo(from url: URL) {
         let downloadTask = URLSession.shared.downloadTask(with: url) { (temporaryURL, response, error) in
             guard let temporaryURL = temporaryURL else {
@@ -146,8 +154,10 @@ class CellSwap2: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
 
             // Lưu trữ video vào local storage (ví dụ: Documents directory)
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            let destinationURL = documentsDirectory.appendingPathComponent("downloadedVideo.mp4")
-
+            //let destinationURL = documentsDirectory.appendingPathComponent("downloadedVideo.mp4")
+            let timestamp = Date().timeIntervalSince1970
+            let videoName = "downloadedVideo_\(timestamp).mp4"
+            let destinationURL = documentsDirectory.appendingPathComponent(videoName)
             do {
                 try FileManager.default.moveItem(at: temporaryURL, to: destinationURL)
                 print("Downloaded video saved to: \(destinationURL.absoluteString)")
@@ -180,5 +190,21 @@ extension UIResponder {
         } else {
             return nil
         }
+    }
+}
+extension UIApplication {
+    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
     }
 }

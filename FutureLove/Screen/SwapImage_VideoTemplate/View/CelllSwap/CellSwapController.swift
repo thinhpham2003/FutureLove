@@ -12,7 +12,7 @@ class CellSwapController: UICollectionViewCell {
     
     @IBOutlet weak var cellSwapCollectionView: UICollectionView!
     var cellConNames = ["CellSwap1", "CellSwap2", "CellSwap3"]
-
+    let spinner = UIActivityIndicatorView(style: .large)
     var selectedVideoURL: URL?
     var idVideoGoc: Int?
     var thumbURL: URL?
@@ -51,6 +51,8 @@ extension CellSwapController: UICollectionViewDelegate, UICollectionViewDataSour
             cellSwapCollectionView.reloadData()
         }
     }
+
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
