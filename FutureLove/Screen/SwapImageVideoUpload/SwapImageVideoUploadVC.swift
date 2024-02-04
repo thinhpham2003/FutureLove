@@ -200,6 +200,7 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
         present(activityController, animated: true, completion: nil)
     }
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        var check: Bool = false
         if let videoURL = videoLinkSwap {
             let downloadTask = URLSession.shared.downloadTask(with: videoURL) { (temporaryURL, response, error) in
                 guard let temporaryURL = temporaryURL else {
@@ -220,13 +221,15 @@ class SwapImageVideoUploadVC: UIViewController, UIImagePickerControllerDelegate,
                     // Lưu video vào thư viện ảnh
                     if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(destinationURL.path) {
                         UISaveVideoAtPathToSavedPhotosAlbum(destinationURL.path, nil, nil, nil)
-                        self.showAlert(title: "Thành công", message: "Video được lưu thành công")
+                        check = true
                     }
                 } catch {
                     print("Failed to move downloaded file. Error: \(error.localizedDescription)")
                 }
             }
-
+            if(check){
+                self.showAlert(title: "Thành công", message: "Video được lưu thành công")
+            }
             downloadTask.resume()
         }
 
