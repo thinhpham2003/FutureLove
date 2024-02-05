@@ -126,11 +126,12 @@ class CellSwap2: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
                 } else {
                     //print("Video created successfully: \(resultVideo)")
                     // Xử lý kết quả video ở đây
-                    if let topViewController = UIApplication.topViewController() {
+                    if let topViewController = UIApplication.shared.keyWindow?.rootViewController {
                         self.spinner.center = topViewController.view.center
                         topViewController.view.addSubview(self.spinner)
                         self.spinner.startAnimating()
                     }
+
 
                 }
             }

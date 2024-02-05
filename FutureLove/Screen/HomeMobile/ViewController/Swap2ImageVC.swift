@@ -82,6 +82,7 @@ extension Swap2ImageVC: UICollectionViewDelegateFlowLayout{
             return CGSize(width: UIScreen.main.bounds.width - 10, height: 365)
 
         }
-        return CGSize(width: UIScreen.main.bounds.width - 10, height: 720)
+        return CGSize(width: UIScreen.main.bounds.width - 10, height: 760)
     }
 }
+
