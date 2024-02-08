@@ -21,7 +21,13 @@ class SwapImage_VideoTemplateVC: UIViewController, SETabItemProvider {
     var check : Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if AppConstant.userId == nil {
+            // Nếu chưa đăng nhập, chuyển hướng sang màn hình đăng nhập
+            self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
+        } 
+//        else {
+//            self.navigationController?.setRootViewController(viewController: SwapImage_VideoTemplateVC(), controllerType: SwapImage_VideoTemplateVC.self)
+//        }
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = UIScreen.main.bounds
         gradientLayer.colors = [

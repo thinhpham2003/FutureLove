@@ -24,7 +24,7 @@
                         <rect key="frame" x="57" y="267" width="343" height="11"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="button" translatesAutoresizingMaskIntoConstraints="NO" id="9eE-Eh-JAS">
-                        <rect key="frame" x="153" y="319" width="150" height="40"/>
+                        <rect key="frame" x="153" y="319" width="150" height="47.333333333333314"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkq-0C-5If">
                         <rect key="frame" x="228" y="214" width="0.0" height="0.0"/>
@@ -32,23 +32,31 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="START" translatesAutoresizingMaskIntoConstraints="NO" id="s2H-BF-LFt">
-                        <rect key="frame" x="191" y="330" width="75" height="19"/>
-                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rF3-B7-2ur">
+                        <rect key="frame" x="153" y="320" width="150" height="45.333333333333314"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="START">
+                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="26"/>
+                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="mLe-q3-uep" firstAttribute="leading" secondItem="Jkq-0C-5If" secondAttribute="trailing" constant="-193" id="0fI-UK-vi3"/>
+                <constraint firstItem="rF3-B7-2ur" firstAttribute="top" secondItem="Jkq-0C-5If" secondAttribute="bottom" constant="106" id="2t4-Rr-Hjv"/>
+                <constraint firstItem="rF3-B7-2ur" firstAttribute="trailing" secondItem="9eE-Eh-JAS" secondAttribute="trailing" id="35t-Jq-tri"/>
                 <constraint firstItem="Jkq-0C-5If" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="DHP-Vs-2aF"/>
+                <constraint firstItem="rF3-B7-2ur" firstAttribute="leading" secondItem="Jkq-0C-5If" secondAttribute="trailing" constant="-75" id="FK1-bJ-131"/>
                 <constraint firstItem="Jkq-0C-5If" firstAttribute="top" secondItem="mLe-q3-uep" secondAttribute="bottom" constant="-26" id="IlZ-hq-jnQ"/>
                 <constraint firstItem="QmA-8D-aZ2" firstAttribute="leading" secondItem="Jkq-0C-5If" secondAttribute="trailing" constant="-171" id="L5i-NT-UQQ"/>
                 <constraint firstItem="9eE-Eh-JAS" firstAttribute="top" secondItem="Jkq-0C-5If" secondAttribute="bottom" constant="105" id="M8Z-c6-ETx"/>
                 <constraint firstItem="Jkq-0C-5If" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="P66-eT-SpH"/>
+                <constraint firstItem="rF3-B7-2ur" firstAttribute="centerY" secondItem="9eE-Eh-JAS" secondAttribute="centerY" id="Rik-rP-6jb"/>
                 <constraint firstItem="9eE-Eh-JAS" firstAttribute="leading" secondItem="Jkq-0C-5If" secondAttribute="trailing" constant="-75" id="U37-cF-5Hl"/>
+                <constraint firstItem="rF3-B7-2ur" firstAttribute="leading" secondItem="9eE-Eh-JAS" secondAttribute="leading" id="Z20-ZC-4HW"/>
                 <constraint firstItem="QmA-8D-aZ2" firstAttribute="top" secondItem="Jkq-0C-5If" secondAttribute="bottom" constant="53" id="a1B-b5-gPh"/>
-                <constraint firstItem="s2H-BF-LFt" firstAttribute="top" secondItem="Jkq-0C-5If" secondAttribute="bottom" constant="116" id="hnb-By-oHa"/>
-                <constraint firstItem="s2H-BF-LFt" firstAttribute="leading" secondItem="Jkq-0C-5If" secondAttribute="trailing" constant="-37" id="k7D-Yi-06t"/>
             </constraints>
             <size key="customSize" width="456" height="428"/>
             <point key="canvasLocation" x="316.03053435114504" y="25.35211267605634"/>
@@ -57,7 +65,6 @@
     <resources>
         <image name="ARE YOU IN LOVE OR ARE YOU MARRIED_ WHAT WILL YOUR CHILDREN LOOK LIKE_" width="386" height="162"/>
         <image name="CLICK NOW BUT LOOK YOUR CHILD IN THE FUTURE" width="343" height="11"/>
-        <image name="START" width="75" height="19"/>
         <image name="button" width="150" height="40"/>
     </resources>
 </document>

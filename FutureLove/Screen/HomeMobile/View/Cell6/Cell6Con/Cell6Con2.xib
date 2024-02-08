@@ -21,10 +21,7 @@
                         <rect key="frame" x="38" y="93" width="320" height="14"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="button" translatesAutoresizingMaskIntoConstraints="NO" id="Eoe-Ys-bXR">
-                        <rect key="frame" x="123" y="117" width="150" height="40"/>
-                    </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="START" translatesAutoresizingMaskIntoConstraints="NO" id="Wal-7r-uLf">
-                        <rect key="frame" x="161" y="127" width="75" height="19"/>
+                        <rect key="frame" x="123" y="117" width="150" height="42"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAo-D8-3k0">
                         <rect key="frame" x="198" y="85.666666666666671" width="0.0" height="0.0"/>
@@ -35,32 +32,45 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SWAP ONE IMAGE WITH VIDEO TEMPALE" translatesAutoresizingMaskIntoConstraints="NO" id="mrY-Y3-e5c">
                         <rect key="frame" x="10" y="10" width="376" height="72"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJG-gN-uFf">
+                        <rect key="frame" x="123" y="115" width="150" height="46"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="START">
+                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="26"/>
+                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="buttonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="pdl-vw-MF0"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="Eoe-Ys-bXR" firstAttribute="top" secondItem="kAo-D8-3k0" secondAttribute="bottom" constant="31.333333333333329" id="1Se-iG-KGk"/>
                 <constraint firstItem="Eoe-Ys-bXR" firstAttribute="leading" secondItem="kAo-D8-3k0" secondAttribute="trailing" constant="-75" id="2UG-Di-4ei"/>
-                <constraint firstItem="Wal-7r-uLf" firstAttribute="top" secondItem="kAo-D8-3k0" secondAttribute="bottom" constant="41.333333333333329" id="6Fw-2L-0JT"/>
+                <constraint firstItem="QJG-gN-uFf" firstAttribute="top" secondItem="kAo-D8-3k0" secondAttribute="bottom" constant="29.333333333333329" id="BKs-aG-VOU"/>
+                <constraint firstItem="QJG-gN-uFf" firstAttribute="centerX" secondItem="Eoe-Ys-bXR" secondAttribute="centerX" id="D8s-O1-DQw"/>
+                <constraint firstItem="QJG-gN-uFf" firstAttribute="leading" secondItem="Eoe-Ys-bXR" secondAttribute="leading" id="GfK-L4-fn2"/>
                 <constraint firstItem="kAo-D8-3k0" firstAttribute="top" secondItem="mrY-Y3-e5c" secondAttribute="bottom" constant="3.6666666666666714" id="LI5-WJ-Etz"/>
+                <constraint firstItem="QJG-gN-uFf" firstAttribute="centerY" secondItem="Eoe-Ys-bXR" secondAttribute="centerY" id="RFX-M0-1eC"/>
                 <constraint firstItem="vRg-I4-KPV" firstAttribute="leading" secondItem="kAo-D8-3k0" secondAttribute="trailing" constant="-160" id="XWN-YF-VTU"/>
                 <constraint firstItem="mrY-Y3-e5c" firstAttribute="leading" secondItem="kAo-D8-3k0" secondAttribute="trailing" constant="-188" id="Xed-eJ-Dbc"/>
                 <constraint firstItem="kAo-D8-3k0" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="apN-8S-5gw"/>
-                <constraint firstItem="Wal-7r-uLf" firstAttribute="leading" secondItem="kAo-D8-3k0" secondAttribute="trailing" constant="-37" id="d7a-4F-B30"/>
+                <constraint firstItem="QJG-gN-uFf" firstAttribute="leading" secondItem="kAo-D8-3k0" secondAttribute="trailing" constant="-75" id="cbb-K8-Tlj"/>
                 <constraint firstItem="vRg-I4-KPV" firstAttribute="top" secondItem="kAo-D8-3k0" secondAttribute="bottom" constant="7.3333333333333286" id="fnQ-Ql-lgR"/>
                 <constraint firstItem="kAo-D8-3k0" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="w3o-ln-lDC"/>
+                <constraint firstItem="QJG-gN-uFf" firstAttribute="trailing" secondItem="Eoe-Ys-bXR" secondAttribute="trailing" id="zSg-0r-5vq"/>
             </constraints>
             <connections>
                 <outlet property="image1" destination="mrY-Y3-e5c" id="VVz-b6-8uX"/>
                 <outlet property="image2" destination="vRg-I4-KPV" id="gqa-hU-95E"/>
-                <outlet property="image3" destination="Wal-7r-uLf" id="rmE-Hm-JiC"/>
                 <outlet property="image4" destination="Eoe-Ys-bXR" id="nd9-L7-fNT"/>
             </connections>
             <point key="canvasLocation" x="131" y="-12"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="START" width="75" height="19"/>
         <image name="SWAP ONE IMAGE WITH VIDEO TEMPALE" width="376" height="72"/>
         <image name="What will your face if in the video but you want" width="320" height="14"/>
         <image name="button" width="150" height="40"/>

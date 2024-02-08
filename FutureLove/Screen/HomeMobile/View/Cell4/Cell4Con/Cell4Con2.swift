@@ -13,5 +13,5 @@ class Cell4Con2: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
 }

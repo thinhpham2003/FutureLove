@@ -30,6 +30,14 @@ class SKLoveVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     var currentImageType: ChooseImageType = .boy
     override func viewDidLoad() {
         super.viewDidLoad()
+        if AppConstant.userId == nil {
+            // Nếu chưa đăng nhập, chuyển hướng sang màn hình đăng nhập
+            self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
+        } 
+//        else {
+//            // Nếu đã đăng nhập, thiết lập màn hình chính là TabbarViewController
+//            self.navigationController?.setRootViewController(viewController: SKLoveVC(), controllerType: SKLoveVC.self)
+//        }
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = UIScreen.main.bounds
         gradientLayer.colors = [

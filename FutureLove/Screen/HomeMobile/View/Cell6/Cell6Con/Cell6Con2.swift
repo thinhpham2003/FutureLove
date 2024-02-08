@@ -18,5 +18,13 @@ class Cell6Con2: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        // Tạo một instance của NextViewController
+        let nextViewController = SwapImage_VideoTemplateVC()
 
+        // Chuyển hướng sang NextViewController
+        if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+            navigationController.pushViewController(nextViewController, animated: true)
+        }
+    }
 }

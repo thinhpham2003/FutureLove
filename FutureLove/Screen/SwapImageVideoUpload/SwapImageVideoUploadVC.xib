@@ -74,9 +74,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logohome" translatesAutoresizingMaskIntoConstraints="NO" id="7xt-e1-oha">
-                    <rect key="frame" x="-9" y="42" width="126" height="101"/>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYh-6v-6Tu">
                     <rect key="frame" x="256" y="237" width="121" height="142"/>
                     <color key="backgroundColor" red="0.85098040100000005" green="0.85098040100000005" blue="0.85098040100000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -136,8 +133,6 @@
                 <constraint firstItem="4PY-lw-HwE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EZA-4d-hWa"/>
                 <constraint firstItem="VCV-zD-tjM" firstAttribute="leading" secondItem="4PY-lw-HwE" secondAttribute="trailing" constant="99.333333333333343" id="Ehr-nw-ZQC"/>
                 <constraint firstAttribute="bottom" secondItem="vqa-0V-t88" secondAttribute="bottom" constant="20" id="G6d-L7-u3O"/>
-                <constraint firstItem="4PY-lw-HwE" firstAttribute="top" secondItem="7xt-e1-oha" secondAttribute="bottom" constant="283" id="GtQ-Cj-QuR"/>
-                <constraint firstItem="4PY-lw-HwE" firstAttribute="leading" secondItem="7xt-e1-oha" secondAttribute="trailing" constant="79.333333333333314" id="I5L-4q-TvV"/>
                 <constraint firstItem="4PY-lw-HwE" firstAttribute="leading" secondItem="uJA-9v-Nft" secondAttribute="trailing" constant="98.666666666666657" id="IT6-9W-kFA"/>
                 <constraint firstItem="MY7-Fa-10b" firstAttribute="trailing" secondItem="5fY-Ft-tLO" secondAttribute="trailing" id="J4w-Ij-eNc"/>
                 <constraint firstItem="4PY-lw-HwE" firstAttribute="top" secondItem="uJA-9v-Nft" secondAttribute="bottom" constant="97" id="M5Y-yZ-imQ"/>
@@ -184,7 +179,6 @@
         <image name="Your Image" width="88" height="16"/>
         <image name="Your Video" width="84" height="13"/>
         <image name="eva_swap-outline" width="52" height="52"/>
-        <image name="logohome" width="126" height="101"/>
         <image name="vector" width="26" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

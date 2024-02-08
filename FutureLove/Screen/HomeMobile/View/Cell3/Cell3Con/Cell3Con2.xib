@@ -23,9 +23,6 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="install" translatesAutoresizingMaskIntoConstraints="NO" id="bgQ-kd-Jvc">
                         <rect key="frame" x="83" y="212" width="302" height="14"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="START" translatesAutoresizingMaskIntoConstraints="NO" id="49L-qu-86p">
-                        <rect key="frame" x="197" y="259" width="75" height="19"/>
-                    </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="swap2image" translatesAutoresizingMaskIntoConstraints="NO" id="pcK-ml-arA">
                         <rect key="frame" x="80" y="170" width="309" height="27"/>
                     </imageView>
@@ -35,27 +32,41 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHF-Sr-3bK">
+                        <rect key="frame" x="159" y="246" width="150" height="46"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="START">
+                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="26"/>
+                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="buttonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="VSL-jW-fhA"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="iHF-Sr-3bK" firstAttribute="leading" secondItem="qpv-KK-kxu" secondAttribute="leading" id="40E-km-dSt"/>
                 <constraint firstItem="hcQ-dl-44K" firstAttribute="top" secondItem="pcK-ml-arA" secondAttribute="bottom" constant="32.666666666666657" id="6KU-N6-VxM"/>
                 <constraint firstItem="hcQ-dl-44K" firstAttribute="top" secondItem="bgQ-kd-Jvc" secondAttribute="bottom" constant="3.6666666666666572" id="Esm-lS-f2P"/>
                 <constraint firstItem="hcQ-dl-44K" firstAttribute="leading" secondItem="qpv-KK-kxu" secondAttribute="trailing" constant="-74.333333333333343" id="JCt-QF-3j5"/>
                 <constraint firstItem="hcQ-dl-44K" firstAttribute="leading" secondItem="pcK-ml-arA" secondAttribute="trailing" constant="-154.33333333333334" id="L9g-MF-FPh"/>
+                <constraint firstItem="iHF-Sr-3bK" firstAttribute="trailing" secondItem="qpv-KK-kxu" secondAttribute="trailing" id="LiD-Bb-XRJ"/>
                 <constraint firstItem="qpv-KK-kxu" firstAttribute="top" secondItem="hcQ-dl-44K" secondAttribute="bottom" constant="19.333333333333343" id="MQb-2A-Bqa"/>
                 <constraint firstItem="hcQ-dl-44K" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="TTv-lL-df9"/>
-                <constraint firstItem="hcQ-dl-44K" firstAttribute="leading" secondItem="49L-qu-86p" secondAttribute="trailing" constant="-37.333333333333343" id="Wmd-4X-YI5"/>
                 <constraint firstItem="hcQ-dl-44K" firstAttribute="leading" secondItem="bgQ-kd-Jvc" secondAttribute="trailing" constant="-150.33333333333334" id="dQS-jh-WYj"/>
+                <constraint firstItem="hcQ-dl-44K" firstAttribute="leading" secondItem="iHF-Sr-3bK" secondAttribute="trailing" constant="-74.333333333333343" id="fjN-JU-x6F"/>
+                <constraint firstItem="iHF-Sr-3bK" firstAttribute="centerX" secondItem="qpv-KK-kxu" secondAttribute="centerX" id="gCr-lx-TtK"/>
                 <constraint firstItem="hcQ-dl-44K" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="oTY-mP-dMh"/>
-                <constraint firstItem="49L-qu-86p" firstAttribute="top" secondItem="hcQ-dl-44K" secondAttribute="bottom" constant="29.333333333333343" id="rFV-Xj-XNe"/>
+                <constraint firstItem="iHF-Sr-3bK" firstAttribute="top" secondItem="hcQ-dl-44K" secondAttribute="bottom" constant="16.333333333333343" id="pTQ-Ga-8Yc"/>
+                <constraint firstItem="iHF-Sr-3bK" firstAttribute="centerY" secondItem="qpv-KK-kxu" secondAttribute="centerY" id="waf-Zz-yFp"/>
             </constraints>
             <size key="customSize" width="469" height="459"/>
             <point key="canvasLocation" x="304.58015267175574" y="33.450704225352112"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="START" width="75" height="19"/>
         <image name="button" width="150" height="40"/>
         <image name="install" width="302" height="14"/>
         <image name="swap2image" width="309" height="27"/>

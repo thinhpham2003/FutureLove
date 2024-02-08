@@ -26,27 +26,36 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="button" translatesAutoresizingMaskIntoConstraints="NO" id="lmK-Pn-M0C">
                         <rect key="frame" x="204" y="266" width="150" height="40"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="START" translatesAutoresizingMaskIntoConstraints="NO" id="bc4-5e-nvg">
-                        <rect key="frame" x="242" y="277" width="75" height="19"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCg-R0-LNn">
                         <rect key="frame" x="279" y="211" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knY-7U-OaD">
+                        <rect key="frame" x="204" y="263" width="150" height="46"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="START">
+                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="26"/>
+                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="yCg-R0-LNn" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="2JB-TN-KVu"/>
-                <constraint firstItem="bc4-5e-nvg" firstAttribute="top" secondItem="yCg-R0-LNn" secondAttribute="bottom" constant="66" id="C3T-ZZ-FKq"/>
+                <constraint firstItem="knY-7U-OaD" firstAttribute="leading" secondItem="yCg-R0-LNn" secondAttribute="trailing" constant="-75" id="8hf-4m-ThN"/>
+                <constraint firstItem="knY-7U-OaD" firstAttribute="centerY" secondItem="lmK-Pn-M0C" secondAttribute="centerY" id="8zW-bX-Htb"/>
                 <constraint firstItem="vKi-RA-NN6" firstAttribute="leading" secondItem="yCg-R0-LNn" secondAttribute="trailing" constant="-149" id="Gst-yO-kRt"/>
+                <constraint firstItem="knY-7U-OaD" firstAttribute="leading" secondItem="lmK-Pn-M0C" secondAttribute="leading" id="KQR-14-2IA"/>
                 <constraint firstItem="Yh6-T2-w5A" firstAttribute="leading" secondItem="yCg-R0-LNn" secondAttribute="trailing" constant="-165" id="MXL-Jg-ldB"/>
                 <constraint firstItem="yCg-R0-LNn" firstAttribute="top" secondItem="vKi-RA-NN6" secondAttribute="bottom" constant="7" id="Pp8-MI-tCD"/>
+                <constraint firstItem="knY-7U-OaD" firstAttribute="top" secondItem="yCg-R0-LNn" secondAttribute="bottom" constant="52" id="UwM-sS-xGH"/>
                 <constraint firstItem="yCg-R0-LNn" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bBc-L6-z1T"/>
+                <constraint firstItem="knY-7U-OaD" firstAttribute="trailing" secondItem="lmK-Pn-M0C" secondAttribute="trailing" id="iKq-Em-SQv"/>
                 <constraint firstItem="lmK-Pn-M0C" firstAttribute="leading" secondItem="yCg-R0-LNn" secondAttribute="trailing" constant="-75" id="paD-cO-sgj"/>
-                <constraint firstItem="bc4-5e-nvg" firstAttribute="leading" secondItem="yCg-R0-LNn" secondAttribute="trailing" constant="-37" id="rHe-fK-C1G"/>
+                <constraint firstItem="knY-7U-OaD" firstAttribute="centerX" secondItem="lmK-Pn-M0C" secondAttribute="centerX" id="rQe-tK-3o8"/>
                 <constraint firstItem="Yh6-T2-w5A" firstAttribute="top" secondItem="yCg-R0-LNn" secondAttribute="bottom" constant="8" symbolic="YES" id="sF2-yc-zqU"/>
                 <constraint firstItem="lmK-Pn-M0C" firstAttribute="top" secondItem="yCg-R0-LNn" secondAttribute="bottom" constant="55" id="sUx-Wb-lwO"/>
             </constraints>
@@ -56,7 +65,6 @@
     </objects>
     <resources>
         <image name="Have more 200 template, change your mind now with unique videos" width="330" height="32"/>
-        <image name="START" width="75" height="19"/>
         <image name="SWAP ONE IMAGE WITH TEMPLATE" width="299" height="72"/>
         <image name="button" width="150" height="40"/>
     </resources>
