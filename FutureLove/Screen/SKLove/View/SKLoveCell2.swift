@@ -149,29 +149,12 @@ class SKLoveCell2: UICollectionViewCell, UIImagePickerControllerDelegate, UINavi
         self.imageNu.image = self.image_Data_Nam
         self.imageNam.image = self.image_Data_Nu
         guard self.boyNameTextField.text != "" && self.girlNameTextField.text != ""  else {
-//            if self.imageGirlLink == "" {
-//                self.animateViewAll(viewAnim: self.girlView)
-//                self.view.makeToast("Please select Photo girl", position: .top)
-//                self.IsStopGirlAnimation = false
-//            }else if self.imageboyLink == "" {
-//                self.animateViewAll(viewAnim: self.boyView)
-//                self.view.makeToast("Please select Boy girl", position: .top)
-//                self.IsStopBoyAnimation = false
-//            } else if self.boyNameTextField.text == "" || self.girlNameTextField.text == "" {
-//                self.view.makeToast("Please Fill Text Name For Boy And Girl", position: .top)
-//            }
+
             return
         }
-//        try? VideoBackground.shared.play(view: self.backgroundView, videoName: "background2", videoType: "mp4")
-        //self.showCustomeIndicator()
-        //self.circularSlider.maximumValue = 180.0
+
         var timeCount = 0.0
-//        self.timerNow = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (_) in
-//            timeCount = timeCount + 1
-//            let tile = Int((timeCount / 180.0) * 100.0)
-//            self.percentLabel.text = String(tile) + " %"
-//            self.updatePlayerUI(withCurrentTime: CGFloat(timeCount))
-//        }
+
         self.btnStart.isEnabled = false
 
         APIService.shared.getEventsAPI(linkNam: OldBoyLink2, linkNu: OldGirlLink2,device: AppConstant.modelName ?? "iphone", ip: AppConstant.IPAddress.asStringOrEmpty(), Id: AppConstant.userId.asStringOrEmpty(), tennam: self.boyNameTextField.text.asStringOrEmpty(), tennu: self.girlNameTextField.text.asStringOrEmpty()){ result, error in

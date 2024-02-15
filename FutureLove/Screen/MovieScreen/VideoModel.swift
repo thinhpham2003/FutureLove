@@ -173,20 +173,53 @@ struct SukienSwapVideoUpdate: Codable {
     }
 }
 
-//"id_saved": "352190473574",
-//"link_src_goc": "/var/www/build_futurelove/image/image_user/236/video/236_vid_47083.jpg",
-//"link_tar_goc": "/var/www/build_futurelove/image/image_user/236/video/236_vid_35532.jpg",
-//"link_da_swap": "https://futurelove.online/image/gen_image/590290_925494033564/out/236_vid_35532.jpg",
-//"id_toan_bo_su_kien": "352190473574",
-//"thoigian_sukien": "2024-01-30, 15:49:00",
-//"device_them_su_kien": "gdgdg",
-//"ip_them_su_kien": "dfbdfbd",
-//"id_user": 3,
-//"count_comment": 0,
-//"count_view": 0,
-//"id_template": 4,
-//"loai_sukien": "swap_2face",
-//"id_all_sk": "null"
+/*
+ "sukien_baby": [
+    {
+        "id": "54",
+        "thongtin": "30 Incredibly Chic Street-Style Photos From India",
+        "tomLuocText": "boy outfit",
+        "link_nam_goc": "https://futurelove.online/image/image_user/236/nam/236_nam_75249.jpg",
+        "link_nu_goc": "https://futurelove.online/image/image_user/236/nu/236_nu_19545.jpg",
+        "link_baby_goc": "https://futurelove.online/image/image_sk_baby/nam_54.jpg",
+        "link_da_swap": "https://futurelove.online/image/gen_image/6490_435218633764/out/nam_54.jpg",
+        "nguoi_swap": "nam",
+        "id_toan_bo_su_kien": "999943678437"
+    }
+]
+*/
+
+struct SukienGenBaby: Codable {
+    var id: String?
+    var thongtin: String?
+    var tomLuocText: String?
+    var link_nam_goc: String?
+    var link_nu_goc: String?
+    var link_baby_goc: String?
+    var link_da_swap: String?
+    var nguoi_swap: String?
+    var id_toan_bo_su_kien: Int?
+
+    mutating func initLoad(_ json:[String:Any]) -> SukienGenBaby {
+        if let data = json["sukien_baby"] as? [[String: Any]] {
+            for item in data{
+                if let temp = item["id"] as? String { id = temp }
+                if let temp = item["thongtin"] as? String { thongtin = temp }
+                if let temp = item["tomLuocText"] as? String { tomLuocText = temp }
+                if let temp = item["link_nam_goc"] as? String { link_nam_goc = temp }
+                if let temp = item["link_nu_goc"] as? String { link_nu_goc = temp }
+                if let temp = item["link_baby_goc"] as? String { link_baby_goc = temp }
+                if let temp = item["link_da_swap"] as? String { link_da_swap = temp }
+                if let temp = item["nguoi_swap"] as? String { nguoi_swap = temp }
+                if let temp = item["id_toan_bo_su_kien"] as? Int { id_toan_bo_su_kien = temp }
+            }
+
+        }
+
+        return self
+    }
+}
+
 struct SukienSwap2Image: Codable {
     var id_saved: String?
     var link_src_goc: String?

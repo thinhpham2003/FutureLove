@@ -39,6 +39,9 @@
                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="26"/>
                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </buttonConfiguration>
+                        <connections>
+                            <action selector="buttonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="KNv-eb-hc6"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>

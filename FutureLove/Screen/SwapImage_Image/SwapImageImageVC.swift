@@ -208,7 +208,7 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
         backGroundBtnDowload.isHidden = true
     }
     @IBAction func startEventBtn(_ sender: Any){
-        if(!checkNu && !checkNam){
+        if(!checkNu || !checkNam){
             showAlert(title: "Lỗi", message: "Vui lòng tải lên đủ ảnh hoặc ảnh hợp lệ")
         }
         else{

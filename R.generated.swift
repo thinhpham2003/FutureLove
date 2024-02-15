@@ -71,12 +71,18 @@ struct _R {
     var tabbar: RswiftResources.ColorResource { .init(name: "tabbar", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 142 images.
+  /// This `_R.image` struct is generated, and contains static references to 145 images.
   struct image {
     let bundle: Foundation.Bundle
 
     /// Image `ARE YOU IN LOVE OR ARE YOU MARRIED_ WHAT WILL YOUR CHILDREN LOOK LIKE_`.
     var areyouinloveorareyoumarried_WHATWILLYOURCHILDRENLOOKLIKE_: RswiftResources.ImageResource { .init(name: "ARE YOU IN LOVE OR ARE YOU MARRIED_ WHAT WILL YOUR CHILDREN LOOK LIKE_", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Arrow 1`.
+    var arrow1: RswiftResources.ImageResource { .init(name: "Arrow 1", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Arrow 2 (1)`.
+    var arrow21: RswiftResources.ImageResource { .init(name: "Arrow 2 (1)", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `CLICK NOW BUT LOOK YOUR CHILD IN THE FUTURE`.
     var clicknowbutlookyourchildinthefuturE: RswiftResources.ImageResource { .init(name: "CLICK NOW BUT LOOK YOUR CHILD IN THE FUTURE", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -113,6 +119,9 @@ struct _R {
 
     /// Image `Frame 48097546`.
     var frame48097546: RswiftResources.ImageResource { .init(name: "Frame 48097546", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Frame 48097840`.
+    var frame48097840: RswiftResources.ImageResource { .init(name: "Frame 48097840", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Frame 48097905`.
     var frame48097905: RswiftResources.ImageResource { .init(name: "Frame 48097905", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -768,6 +777,9 @@ struct _R {
     /// Nib `FogotPassViewController`.
     var fogotPassViewController: RswiftResources.NibReference<UIKit.UIView> { .init(name: "FogotPassViewController", bundle: bundle) }
 
+    /// Nib `GenBabyVC`.
+    var genBabyVC: RswiftResources.NibReference<UIKit.UIView> { .init(name: "GenBabyVC", bundle: bundle) }
+
     /// Nib `HeaderView`.
     var headerView: RswiftResources.NibReference<UIKit.UIView> { .init(name: "HeaderView", bundle: bundle) }
 
@@ -839,9 +851,6 @@ struct _R {
 
     /// Nib `SKLoveVC`.
     var skLoveVC: RswiftResources.NibReference<UIKit.UIView> { .init(name: "SKLoveVC", bundle: bundle) }
-
-    /// Nib `SKLoveViewController`.
-    var skLoveViewController: RswiftResources.NibReference<UIKit.UIView> { .init(name: "SKLoveViewController", bundle: bundle) }
 
     /// Nib `SlideMenuTableViewCell`.
     var slideMenuTableViewCell: RswiftResources.NibReference<SlideMenuTableViewCell> { .init(name: "SlideMenuTableViewCell", bundle: bundle) }
@@ -977,6 +986,15 @@ struct _R {
       if UIKit.UIImage(named: "back", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'back' is used in nib 'FogotPassViewController', but couldn't be loaded.") }
       if UIKit.UIImage(named: "backgroudLogin", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'backgroudLogin' is used in nib 'FogotPassViewController', but couldn't be loaded.") }
       if UIKit.UIColor(named: "mainOrange", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Color named 'mainOrange' is used in nib 'FogotPassViewController', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Arrow 1", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Arrow 1' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Arrow 2 (1)", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Arrow 2 (1)' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Ellipse 24", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Ellipse 24' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Ellipse 25", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Ellipse 25' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Frame 48097545", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Frame 48097545' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Frame 48097546", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Frame 48097546' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Frame 48097840", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Frame 48097840' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Plus_Icon_UIA", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Plus_Icon_UIA' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in nib 'GenBabyVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "background", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'background' is used in nib 'HeaderView', but couldn't be loaded.") }
       if UIKit.UIImage(named: "noavatar", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'noavatar' is used in nib 'HomeViewController', but couldn't be loaded.") }
       if UIKit.UIImage(named: "search", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'search' is used in nib 'HomeViewController', but couldn't be loaded.") }

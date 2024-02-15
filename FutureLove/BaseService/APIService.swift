@@ -1381,11 +1381,8 @@ class APIService:NSObject {
         let newString1 = link_img1.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         let newString2 = link_img2.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         if let devicePro = device_them_su_kien.urlEncoded{
-            //https://thinkdiff.us/getdata/swap/2/image?device_them_su_kien=gdgdg&ip_them_su_kien=dfbdfbd&id_user=3
-            //&image=\(newString)&ten_video=\(ten_video)
-
             requestTokenThinhGhepDoi("https://thinkdiff.us/getdata/swap/2/image?device_them_su_kien=\(device_them_su_kien)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)", "\(newString1)", "\(newString2)", param: nil, method: .GET, loading: true) { (data, error) in
-               // requestTokenFolderGhepDoi("https://thinkdiff.us/getdata/swap/2/image?device_them_su_kien=\(device_them_su_kien)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)", linkNam: "\(link_img1)", linkNu: "\(link_img2)", param: nil, method: .GET, loading: true){ (data, error) in
+
                 if let data = data as? [String:Any]{
                     var itemAdd:SukienSwap2Image = SukienSwap2Image()
                     itemAdd = itemAdd.initLoad(data)
@@ -1399,6 +1396,23 @@ class APIService:NSObject {
         }
     }
 
+    func GenBaby(device_them_su_kien:String,ip_them_su_kien:String,id_user:String,linknam:String, linknu:String, closure: @escaping (_ response: SukienGenBaby?, _ error: Error?) -> Void) {
+        let linknamnew = linknam.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+        let linknunew = linknu.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+        if let devicePro = device_them_su_kien.urlEncoded{
+            requestTokenFolderGhepDoi("https://thinkdiff.us/getdata/sukien/baby?device_them_su_kien=\(device_them_su_kien)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)", linkNam: linknamnew, linkNu: linknunew, param: nil, method: .GET, loading: true) { (data, error) in
+                if let data = data as? [String:Any]{
+                    var itemAdd:SukienGenBaby = SukienGenBaby()
+                    itemAdd = itemAdd.initLoad(data)
+                    closure( itemAdd, nil)
+
+                }else{
+
+                    closure( SukienGenBaby(), nil)
+                }
+            }
+        }
+    }
 
 
 
