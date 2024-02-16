@@ -88,7 +88,99 @@ struct ResultVideoModel: Codable {
     }
     
 }
+struct SukienGenBaby: Codable {
+    var id: String?
+    var thongtin: String?
+    var tomLuocText: String?
+    var link_nam_goc: String?
+    var link_nu_goc: String?
+    var link_baby_goc: String?
+    var link_da_swap: String?
+    var nguoi_swap: String?
+    var id_toan_bo_su_kien: Int?
 
+    mutating func initLoad(_ json:[String:Any]) -> SukienGenBaby {
+        if let data = json["sukien_baby"] as? [[String: Any]] {
+            for item in data{
+                if let temp = item["id"] as? String { id = temp }
+                if let temp = item["thongtin"] as? String { thongtin = temp }
+                if let temp = item["tomLuocText"] as? String { tomLuocText = temp }
+                if let temp = item["link_nam_goc"] as? String { link_nam_goc = temp }
+                if let temp = item["link_nu_goc"] as? String { link_nu_goc = temp }
+                if let temp = item["link_baby_goc"] as? String { link_baby_goc = temp }
+                if let temp = item["link_da_swap"] as? String { link_da_swap = temp }
+                if let temp = item["nguoi_swap"] as? String { nguoi_swap = temp }
+                if let temp = item["id_toan_bo_su_kien"] as? Int { id_toan_bo_su_kien = temp }
+            }
+
+        }
+
+        return self
+    }
+}
+/*
+ "list_sukien_video": [
+ {
+ "sukien_video": [
+ {
+ "id_video": "547492950126",
+ "link_image": "https://futurelove.online/image/image_user/236/video/236_vid_66212.jpg",
+ "link_vid_swap": "https://futurelove.online/image/gen_video/12561_123015919673/user_236_120192_7.mp4",
+ "link_video_goc": "https://futurelove.online/image/video_sk/7.mp4",
+ "thoigian_swap": "40.16715335845947",
+ "ten_su_kien": "swapvideo.mp4",
+ "noidung_sukien": "abc",
+ "id_video_swap": "7",
+ "thoigian_taosk": "2024-02-10, 23:16:12",
+ "id_user": 236,
+ "count_comment": 0,
+ "count_view": 0
+ }
+ ]
+ }
+ */
+struct VideoUserSwaped: Codable {
+    var id_video : String?
+    var link_image : String?
+    var link_vid_swap : String?
+    var link_video_goc : String?
+    var thoigian_swap : String?
+    var ten_su_kien : String?
+    var noidung_sukien : String?
+    var id_video_swap : String?
+    var thoigian_taosk : String?
+    var id_user : Int?
+    var count_comment : Int?
+    var count_view : Int?
+
+    mutating func initLoad(_ json:[String:Any]) ->VideoUserSwaped{
+        if let data = json["list_sukien_video"] as? [[String:Any]] {
+            for items in data {
+                if let item = items["sukien_video"] as? [[String:Any]]{
+                    if let temp = json["id_video"] as? String {id_video = temp}
+                    if let temp = json["link_image"] as? String {link_image = temp}
+                    if let temp = json["link_vid_swap"] as? String {
+                        link_vid_swap = temp
+                    }
+                    if let temp = json["ten_su_kien"] as? String {ten_su_kien = temp}
+                    if let temp = json["noidung_sukien"] as? String {noidung_sukien = temp}
+                    if let temp = json["id_video_swap"] as? String {
+                        id_video_swap = temp
+                    }
+                    if let temp = json["thoigian_taosk"] as? String {thoigian_taosk = temp}
+                    if let temp = json["id_user"] as? Int {id_user = temp}
+                    if let temp = json["count_comment"] as? Int {
+                        count_comment = temp
+                    }
+                    if let temp = json["count_view"] as? Int {count_view = temp}
+                }
+            }
+        }
+
+        return self
+    }
+
+}
 struct VideoModel: Codable {
     var id_video : String?
     var link_image : String?
@@ -173,52 +265,8 @@ struct SukienSwapVideoUpdate: Codable {
     }
 }
 
-/*
- "sukien_baby": [
-    {
-        "id": "54",
-        "thongtin": "30 Incredibly Chic Street-Style Photos From India",
-        "tomLuocText": "boy outfit",
-        "link_nam_goc": "https://futurelove.online/image/image_user/236/nam/236_nam_75249.jpg",
-        "link_nu_goc": "https://futurelove.online/image/image_user/236/nu/236_nu_19545.jpg",
-        "link_baby_goc": "https://futurelove.online/image/image_sk_baby/nam_54.jpg",
-        "link_da_swap": "https://futurelove.online/image/gen_image/6490_435218633764/out/nam_54.jpg",
-        "nguoi_swap": "nam",
-        "id_toan_bo_su_kien": "999943678437"
-    }
-]
-*/
 
-struct SukienGenBaby: Codable {
-    var id: String?
-    var thongtin: String?
-    var tomLuocText: String?
-    var link_nam_goc: String?
-    var link_nu_goc: String?
-    var link_baby_goc: String?
-    var link_da_swap: String?
-    var nguoi_swap: String?
-    var id_toan_bo_su_kien: Int?
 
-    mutating func initLoad(_ json:[String:Any]) -> SukienGenBaby {
-        if let data = json["sukien_baby"] as? [[String: Any]] {
-            for item in data{
-                if let temp = item["id"] as? String { id = temp }
-                if let temp = item["thongtin"] as? String { thongtin = temp }
-                if let temp = item["tomLuocText"] as? String { tomLuocText = temp }
-                if let temp = item["link_nam_goc"] as? String { link_nam_goc = temp }
-                if let temp = item["link_nu_goc"] as? String { link_nu_goc = temp }
-                if let temp = item["link_baby_goc"] as? String { link_baby_goc = temp }
-                if let temp = item["link_da_swap"] as? String { link_da_swap = temp }
-                if let temp = item["nguoi_swap"] as? String { nguoi_swap = temp }
-                if let temp = item["id_toan_bo_su_kien"] as? Int { id_toan_bo_su_kien = temp }
-            }
-
-        }
-
-        return self
-    }
-}
 
 struct SukienSwap2Image: Codable {
     var id_saved: String?

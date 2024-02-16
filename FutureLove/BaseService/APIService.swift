@@ -740,7 +740,7 @@ class APIService:NSObject {
     }
     
     func LoginAPI(param:[String: String], closure: @escaping (_ response: LoginModel?, _ error: Error?) -> Void) {
-        requestFreeHostSON("https://metatechvn.store/login" , param: param, method: .POST, loading: true) { (data, error) in
+        requestFreeHostSON("https://databaseswap.mangasocial.online/login" , param: param, method: .POST, loading: true) { (data, error) in
             if let data = data as? [String:Any]{
                 var  returnData:LoginModel = LoginModel()
                 returnData = returnData.initLoad(data)
@@ -753,7 +753,7 @@ class APIService:NSObject {
     }
     
     func RegisterAccount(param:[String: String], closure: @escaping (_ response: RegisterModel?, _ error: Error?) -> Void) {
-        requestFreeHostSON("https://metatechvn.store/register/user", param: param, method: .POST, loading: true) { (data, error) in
+        requestFreeHostSON("https://databaseswap.mangasocial.online/register/user", param: param, method: .POST, loading: true) { (data, error) in
             if let data = data as? [String:Any]{
                 var returnData: RegisterModel = RegisterModel()
                 returnData = returnData.initLoad(data)
@@ -764,7 +764,7 @@ class APIService:NSObject {
     }
     
     func resetPassword(param:[String: String], closure: @escaping (_ response: ResetPasswordModel?, _ error: Error?) -> Void) {
-        requestFreeHostSON("https://metatechvn.store/reset", param: param, method: .POST, loading: true) { (data, error) in
+        requestFreeHostSON("https://databaseswap.mangasocial.online/reset", param: param, method: .POST, loading: true) { (data, error) in
             if let data = data as? [String:Any]{
                 var returnData: ResetPasswordModel = ResetPasswordModel()
                 returnData = returnData.initLoad(data)
@@ -777,7 +777,7 @@ class APIService:NSObject {
     }
     
     func getLoveHistory(pageLoad:Int,idUser:String, closure: @escaping (_ response: HomeModel?, _ error: Error?) -> Void) {
-        requestJSON("https://metatechvn.store/lovehistory/page/" + String(pageLoad) + "?id_user=" + idUser, param: nil, method: .GET, loading: true) { (data, error) in
+        requestJSON("https://databaseswap.mangasocial.online/lovehistory/page/" + String(pageLoad) + "?id_user=" + idUser, param: nil, method: .GET, loading: true) { (data, error) in
             if let data2 = data as? [String:Any]{
                 var returnData: HomeModel = HomeModel()
                 returnData = returnData.initLoad(data2)
@@ -790,7 +790,7 @@ class APIService:NSObject {
     }
     
     func getDetailEvent(id: Int, closure: @escaping (_ response: DetailEvent?, _ error: Error?) -> Void) {
-        requestJSON("https://metatechvn.store/lovehistory/\(id)", param: nil, method: .GET, loading: true) { (data, error) in
+        requestJSON("https://databaseswap.mangasocial.online/lovehistory/\(id)", param: nil, method: .GET, loading: true) { (data, error) in
             if let data2 = data as? [String:Any]{
                 var returnData: DetailEvent = DetailEvent()
                 returnData = returnData.initLoad(data2)
@@ -816,7 +816,7 @@ class APIService:NSObject {
     }
     
     func postComents(param:[String: String], closure: @escaping (_ response: PostComments?, _ error: Error?) -> Void) {
-        requestFreeHostSON("https://metatechvn.store/lovehistory/comment", param: param, method: .POST, loading: true) { (data, error) in
+        requestFreeHostSON("https://databaseswap.mangasocial.online/lovehistory/comment", param: param, method: .POST, loading: true) { (data, error) in
             if let data = data as? [String:Any]{
                 var  returnData:PostComments = PostComments()
                 returnData = returnData.initLoad(data)
@@ -829,10 +829,10 @@ class APIService:NSObject {
     }
     
     func getCommentEvent(id: Int,id_toan_bo_su_kien: String,idUser:String, closure: @escaping (_ response: CommentEvent?, _ error: Error?) -> Void) {
-        requestJSON("https://metatechvn.store/lovehistory/comment/\(id)?id_toan_bo_su_kien=\(id_toan_bo_su_kien)" + "?id_user=" + idUser, param: nil, method: .GET, loading: true) { (data, error) in
+        requestJSON("https://databaseswap.mangasocial.online/lovehistory/comment/\(id)?id_toan_bo_su_kien=\(id_toan_bo_su_kien)" + "?id_user=" + idUser, param: nil, method: .GET, loading: true) { (data, error) in
             if let data2 = data as? [String:Any]{
                 var returnData: CommentEvent = CommentEvent()
-                print("https://metatechvn.store/lovehistory/comment/\(id)?id_toan_bo_su_kien=\(id_toan_bo_su_kien)")
+                print("https://databaseswap.mangasocial.online/lovehistory/comment/\(id)?id_toan_bo_su_kien=\(id_toan_bo_su_kien)")
                 returnData = returnData.initLoad(data2)
                 closure(returnData,nil)
             }else{
@@ -843,7 +843,7 @@ class APIService:NSObject {
     }
     
     func getPageComment(page: Int,idUser:String, closure: @escaping (_ response: CommentsModel?, _ error: Error?) -> Void) {
-        requestJSON("https://metatechvn.store/lovehistory/pageComment/" + String(page) + "?id_user=" + idUser, param: nil, method: .GET, loading: true) { (data, error) in
+        requestJSON("https://databaseswap.mangasocial.online/lovehistory/pageComment/" + String(page) + "?id_user=" + idUser, param: nil, method: .GET, loading: true) { (data, error) in
             if let data2 = data as? [String:Any]{
                 var returnData: CommentsModel = CommentsModel()
                 returnData = returnData.initLoad(data2)
@@ -856,7 +856,7 @@ class APIService:NSObject {
     }
     
     func getRecentComment(user: Int, closure: @escaping (_ response: RecentCommentModel?, _ error: Error?) -> Void) {
-        requestJSON("https://metatechvn.store/lovehistory/comment/user/\(user)", param: nil, method: .GET, loading: true) { (data, error) in
+        requestJSON("https://databaseswap.mangasocial.online/lovehistory/comment/user/\(user)", param: nil, method: .GET, loading: true) { (data, error) in
             if let data2 = data as? [String:Any]{
                 var returnData: RecentCommentModel = RecentCommentModel()
                 returnData = returnData.initLoad(data2)
@@ -869,7 +869,7 @@ class APIService:NSObject {
     }
     //${server}/lovehistory/user/video/${user.id_user}?trang=${count}
     func getRecentVideoSwap(user: Int, page: Int, closure: @escaping (_ response: [ResultVideoModel]?, _ error: Error?) -> Void) {
-        requestJSON("https://metatechvn.store/lovehistory/user/video/\(user)?trang=\(page)", param: nil, method: .GET, loading: true) { (data, error) in
+        requestJSON("https://databaseswap.mangasocial.online/lovehistory/user/video/\(user)?trang=\(page)", param: nil, method: .GET, loading: true) { (data, error) in
             var listVideoReturn : [ResultVideoModel] = [ResultVideoModel]()
             if let data = data as? [String:Any]{
                 if let data2 = data["list_sukien_video"] as? [[String:Any]]{
@@ -894,7 +894,7 @@ class APIService:NSObject {
     }
     
     func getUserEvent(user: Int, closure: @escaping (_ response: HomeModel?, _ error: Error?) -> Void) {
-        requestJSON("https://metatechvn.store/lovehistory/user/\(user)", param: nil, method: .GET, loading: true) { (data, error) in
+        requestJSON("https://databaseswap.mangasocial.online/lovehistory/user/\(user)", param: nil, method: .GET, loading: true) { (data, error) in
             if let data2 = data as? [String:Any]{
                 var returnData: HomeModel = HomeModel()
                 returnData = returnData.initLoad(data2)
@@ -907,7 +907,7 @@ class APIService:NSObject {
     }
     
     func getProfile(user: Int, closure: @escaping (_ response: ProfileModel?, _ error: Error?) -> Void) {
-        requestJSON("https://metatechvn.store/profile/\(user)", param: nil, method: .GET, loading: true) { (data, error) in
+        requestJSON("https://databaseswap.mangasocial.online/profile/\(user)", param: nil, method: .GET, loading: true) { (data, error) in
             if let data2 = data as? [String:Any]{
                 var returnData: ProfileModel = ProfileModel()
                 returnData = returnData.initLoad(data2)
@@ -948,7 +948,7 @@ class APIService:NSObject {
         closure(nil, nil)
     }
     func searchComment(searchText: String, closure: @escaping (_ response: HomeModel?, _ error: Error?) -> Void) {
-        let LinkText = "https://metatechvn.store/search?word=" + searchText
+        let LinkText = "https://databaseswap.mangasocial.online/search?word=" + searchText
         requestSON(LinkText,"","", param: nil, method: .GET, loading: true) { (data, error) in
             if let data = data as? [String:Any]{
                 var returnData: HomeModel = HomeModel()
@@ -962,7 +962,7 @@ class APIService:NSObject {
     }
     
     func reportComment(param:[String: String], closure: @escaping (_ response: RegisterModel?, _ error: Error?) -> Void) {
-        requestFreeHostSON("https://metatechvn.store/report/comment", param: param, method: .POST, loading: true) { (data, error) in
+        requestFreeHostSON("https://databaseswap.mangasocial.online/report/comment", param: param, method: .POST, loading: true) { (data, error) in
             if let data = data as? [String:Any]{
                 var returnData: RegisterModel = RegisterModel()
                 returnData = returnData.initLoad(data)
@@ -992,7 +992,7 @@ class APIService:NSObject {
     }
     
     func APISearchUser(nameSearch:String,closure: @escaping (_ response: [UserSearchModel], _ error: Error?) -> Void) {
-        let linkUrl = "https://metatechvn.store/profile/user/" + (nameSearch.urlEncoded ?? "")
+        let linkUrl = "https://databaseswap.mangasocial.online/profile/user/" + (nameSearch.urlEncoded ?? "")
         requestJSON(linkUrl , param: nil, method: .GET, loading: true) { (data, error) in
             var listAPIkey:[UserSearchModel] = [UserSearchModel]()
             if let data2 = data as? [[String:Any]]{
@@ -1030,7 +1030,7 @@ class APIService:NSObject {
     }
     
     func listAllResultVideoSwap(closure: @escaping (_ response: [TempleVideoModel], _ error: Error?) -> Void) {
-        let linkUrl = "https://metatechvn.store/lovehistory/sukien/video"
+        let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/sukien/video"
         requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
             var listVideoReturn : [TempleVideoModel] = [TempleVideoModel]()
             if let data2 = data as? [[String:Any]]{
@@ -1047,9 +1047,9 @@ class APIService:NSObject {
         }
         // closure("Please Wait To Remove", nil)
     }
-    //https://metatechvn.store/lovehistory/listvideo
+    //https://databaseswap.mangasocial.online/lovehistory/listvideo
     func listAllTemplateVideoSwap(page:Int,categories:Int,closure: @escaping (_ response: [Temple2VideoModel], _ error: Error?) -> Void) {
-        let linkUrl = "https://metatechvn.store/lovehistory/listvideo/" + String(page) + "?category=" + String(categories)
+        let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/listvideo/" + String(page) + "?category=" + String(categories)
         requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
             var listVideoReturn : [Temple2VideoModel] = [Temple2VideoModel]()
             if let data = data as? [String:Any]{
@@ -1069,33 +1069,9 @@ class APIService:NSObject {
         }
         // closure("Please Wait To Remove", nil)
     }
-    func listAllVideoSwaped(page:Int,closure: @escaping (_ response: [ResultVideoModel], _ error: Error?) -> Void) {
-        let linkUrl = "https://metatechvn.store/lovehistory/video/" + String(page)
-        requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
-            var listVideoReturn : [ResultVideoModel] = [ResultVideoModel]()
-            if let data = data as? [String:Any]{
-                if let data2 = data["list_sukien_video"] as? [[String:Any]]{
-                    for item in data2{
-                        if let dataListSuKien = item["sukien_video"] as? [[String:Any]]{
-                            for item2 in dataListSuKien{
-                                var itemvideoAdd: ResultVideoModel = ResultVideoModel()
-                                itemvideoAdd = itemvideoAdd.initLoad(item2)
-                                listVideoReturn.append(itemvideoAdd)
-                            }
-                        }
-                    }
-                    closure(listVideoReturn,nil)
-                }else{
-                    closure([ResultVideoModel](),nil)
-                }
-            }else{
-                closure([ResultVideoModel](),nil)
-            }
-        }
-        // closure("Please Wait To Remove", nil)
-    }
+
     func listImageUploaded(type:String,idUser:String,closure: @escaping (_ response: [String], _ error: Error?) -> Void) {
-        let linkUrl = "https://metatechvn.store/images/" + idUser + "?type=" + type
+        let linkUrl = "https://databaseswap.mangasocial.online/images/" + idUser + "?type=" + type
         requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
             var listLinkImage : [String] = [String]()
             if let data = data as? [String:Any]{
@@ -1270,7 +1246,7 @@ class APIService:NSObject {
 
     //
     func ListVideoSwaped(page:Int,closure: @escaping (_ response: [VideoModel], _ error: Error?) -> Void) {
-        let linkUrl = "https://metatechvn.store/lovehistory/video/" + String(page)
+        let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/video/" + String(page)
         requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
             var listVideoReturn : [VideoModel] = [VideoModel]()
             if let data2 = data as? [String:Any]{
@@ -1292,11 +1268,85 @@ class APIService:NSObject {
             // closure("Please Wait To Remove", nil)
         }
     }
-    //https://lhvn.online/getdata/genvideo?id_video=10&device_them_su_kien=fds&ip_them_su_kien=g4&id_user=6&image=/var/www/build_futurelove/image/image_user/3/video/3_vid_86963.jpg&ten_video=chao em
+
+    func ListVideoUserSwaped(id_user: Int, page:Int,closure: @escaping (_ response: [VideoModel], _ error: Error?) -> Void) {
+        let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/user/video/\(id_user)?trang=\(page)"
+        requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
+            var listVideoReturn : [VideoModel] = [VideoModel]()
+            if let data2 = data as? [String:Any]{
+                if let listTongToanBo =  data2["list_sukien_video"] as? [[String:Any]]{
+                    for item in listTongToanBo{
+                        if let listVideo2 = item["sukien_video"] as? [[String:Any]]{
+                            for item2 in listVideo2{
+                                var itemvideoAdd: VideoModel = VideoModel()
+                                itemvideoAdd = itemvideoAdd.initLoad(item2)
+                                listVideoReturn.append(itemvideoAdd)
+                            }
+                        }
+                    }
+                    closure(listVideoReturn,nil)
+                }
+            }else{
+                closure([VideoModel](),nil)
+            }
+            // closure("Please Wait To Remove", nil)
+        }
+    }
+    func listAllVideoUserSwaped(id_user: Int, page:Int,closure: @escaping (_ response: [ResultVideoModel], _ error: Error?) -> Void) {
+        let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/user/video/\(id_user)?trang=\(page)"
+        requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
+            var listVideoReturn : [ResultVideoModel] = [ResultVideoModel]()
+            if let data = data as? [String:Any]{
+                if let data2 = data["list_sukien_video"] as? [[String:Any]]{
+                    for item in data2{
+                        if let dataListSuKien = item["sukien_video"] as? [[String:Any]]{
+                            for item2 in dataListSuKien{
+                                var itemvideoAdd: ResultVideoModel = ResultVideoModel()
+                                itemvideoAdd = itemvideoAdd.initLoad(item2)
+                                listVideoReturn.append(itemvideoAdd)
+                            }
+                        }
+                    }
+                    closure(listVideoReturn,nil)
+                }else{
+                    closure([ResultVideoModel](),nil)
+                }
+            }else{
+                closure([ResultVideoModel](),nil)
+            }
+        }
+        // closure("Please Wait To Remove", nil)
+    }
+    func listAllVideoSwaped(page:Int,closure: @escaping (_ response: [ResultVideoModel], _ error: Error?) -> Void) {
+        let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/video/" + String(page)
+        requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
+            var listVideoReturn : [ResultVideoModel] = [ResultVideoModel]()
+            if let data = data as? [String:Any]{
+                if let data2 = data["list_sukien_video"] as? [[String:Any]]{
+                    for item in data2{
+                        if let dataListSuKien = item["sukien_video"] as? [[String:Any]]{
+                            for item2 in dataListSuKien{
+                                var itemvideoAdd: ResultVideoModel = ResultVideoModel()
+                                itemvideoAdd = itemvideoAdd.initLoad(item2)
+                                listVideoReturn.append(itemvideoAdd)
+                            }
+                        }
+                    }
+                    closure(listVideoReturn,nil)
+                }else{
+                    closure([ResultVideoModel](),nil)
+                }
+            }else{
+                closure([ResultVideoModel](),nil)
+            }
+        }
+        // closure("Please Wait To Remove", nil)
+    }
+    //https://videoswap.mangasocial.online/getdata/genvideo?id_video=10&device_them_su_kien=fds&ip_them_su_kien=g4&id_user=6&image=/var/www/build_futurelove/image/image_user/3/video/3_vid_86963.jpg&ten_video=chao em
     func GenVideoSwap(device_them_su_kien:String,id_video:String,ip_them_su_kien:String,id_user:String,link_img:String, ten_video:String,closure: @escaping (_ response: DetailVideoModel?, _ error: Error?) -> Void) {
         let newString = link_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         if let devicePro = device_them_su_kien.urlEncoded{
-            requestTokenFolderGhepDoi("https://lhvn.online/getdata/genvideo?id_video=\(id_video)&device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&image=\(newString)&ten_video=\(ten_video)", linkNam: "", linkNu: "", param: nil, method: .GET, loading: true) { (data, error) in
+            requestTokenFolderGhepDoi("https://videoswap.mangasocial.online/getdata/genvideo?id_video=\(id_video)&device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&image=\(newString)&ten_video=\(ten_video)", linkNam: "", linkNu: "", param: nil, method: .GET, loading: true) { (data, error) in
                 if let data = data as? [String:Any]{
                     var itemAdd:DetailVideoModel = DetailVideoModel()
                     itemAdd = itemAdd.initLoad(data)
@@ -1311,7 +1361,7 @@ class APIService:NSObject {
 
     func RemoveMyAccount(userID:String,password:String,closure: @escaping (_ response: String, _ error: Error?) -> Void) {
         let paramSend:[String: String] = ["password":password]
-        let linkUrl = "https://metatechvn.store/deleteuser/" + userID
+        let linkUrl = "https://databaseswap.mangasocial.online/deleteuser/" + userID
         requestRemoveAccount(linkUrl, param: paramSend, method: .POST, loading: true) { (data, error) in
             if let data2 = data as? [String:Any]{
                 var messageSend = ""
@@ -1329,7 +1379,7 @@ class APIService:NSObject {
     
     func postTokenNotification(token:String,userID:String,deviceName:String,closure: @escaping (_ response: String, _ error: Error?) -> Void) {
         let paramSend:[String: String] = ["device_token":token,"id_user":userID,"device_name":deviceName]
-        requestRemoveAccount("https://metatechvn.store/add/token", param: paramSend, method: .POST, loading: true) { (data, error) in
+        requestRemoveAccount("https://databaseswap.mangasocial.online/add/token", param: paramSend, method: .POST, loading: true) { (data, error) in
             if let data2 = data as? [String:Any]{
                 var messageSend = ""
                 if let temp = data2["message"] as? String {messageSend = temp}
@@ -1346,7 +1396,7 @@ class APIService:NSObject {
     func createVideoFromImagesAndVideo(device_them_su_kien:String,id_video:String,ip_them_su_kien:String,id_user:String,link_img:String, ten_video:String,closure: @escaping (_ response: SukienSwapVideo?, _ error: Error?) -> Void) {
         let newString = link_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         if let devicePro = device_them_su_kien.urlEncoded{
-            requestTokenFolderGhepDoi("https://lhvn.online/getdata/genvideo?id_video=\(id_video)&device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&image=\(newString)&ten_video=\(ten_video)", linkNam: "", linkNu: "", param: nil, method: .GET, loading: true) { (data, error) in
+            requestTokenFolderGhepDoi("https://videoswap.mangasocial.online/getdata/genvideo?id_video=\(id_video)&device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&image=\(newString)&ten_video=\(ten_video)", linkNam: "", linkNu: "", param: nil, method: .GET, loading: true) { (data, error) in
                 if let data = data as? [String:Any]{
                     var itemAdd:SukienSwapVideo = SukienSwapVideo()
                     itemAdd = itemAdd.initLoad(data)
@@ -1363,7 +1413,7 @@ class APIService:NSObject {
     func createVideoFromImagesAndVideoUpdate(device_them_su_kien:String,videoURL:URL,ip_them_su_kien:String,id_user:String,src_img:String, closure: @escaping (_ response: SukienSwapVideoUpdate?, _ error: Error?) -> Void) {
         let newString = src_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         if let devicePro = device_them_su_kien.urlEncoded{
-            requestVideo("https://lhvn.online/getdata/genvideo/swap/imagevid?device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&src_img=\(newString)", videoURL: videoURL, param: nil, method: .POST, loading: true){ (data, error) in
+            requestVideo("https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid?device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&src_img=\(newString)", videoURL: videoURL, param: nil, method: .POST, loading: true){ (data, error) in
                 if let data = data as? [String:Any]{
                     var itemAdd:SukienSwapVideoUpdate = SukienSwapVideoUpdate()
                     itemAdd = itemAdd.initLoad(data)

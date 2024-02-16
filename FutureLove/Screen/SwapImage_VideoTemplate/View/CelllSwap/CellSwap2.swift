@@ -176,7 +176,7 @@ class CellSwap2: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
     }
     func uploadGenVideoByImages(_ image: UIImage, completion: @escaping ApiCompletion){
 
-        APIService.shared.UploadImagesToGenRieng("https://metatechvn.store/upload-gensk/" + String(AppConstant.userId ?? 0) + "?type=src_vid", ImageUpload: image, method: .POST, loading: true){data,error in
+        APIService.shared.UploadImagesToGenRieng("https://databaseswap.mangasocial.online/upload-gensk/" + String(AppConstant.userId ?? 0) + "?type=src_vid", ImageUpload: image, method: .POST, loading: true){data,error in
             completion(data, nil)
         }
     }

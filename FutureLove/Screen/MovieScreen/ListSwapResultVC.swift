@@ -28,7 +28,7 @@ class ListSwapResultVC: UIViewController {
         loadListVideoTemp()
     }
     func loadListVideoTemp(){
-        APIService.shared.listAllVideoSwaped(page:1){response,error in
+        APIService.shared.listAllVideoUserSwaped(id_user: AppConstant.userId ?? 0, page:1){response,error in
             self.listTemplateVideo = response
             self.collectionViewGood.reloadData()
         }
@@ -55,7 +55,7 @@ extension ListSwapResultVC: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == collectionViewPage{
             indexSelectPage = indexPath.row
-            APIService.shared.listAllVideoSwaped(page:indexSelectPage){response,error in
+            APIService.shared.listAllVideoUserSwaped(id_user: AppConstant.userId ?? 0, page:indexSelectPage){response,error in
                 self.listTemplateVideo = response
                 self.collectionViewGood.reloadData()
             }

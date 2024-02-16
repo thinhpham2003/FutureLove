@@ -8,7 +8,10 @@
 import UIKit
 import SETabView
 
-class Swap2ImageVC: UIViewController, SETabItemProvider {
+class Swap2ImageVC: UIViewController, SETabItemProvider, Cell0Delegate {
+    func presentAlertController(_ alertController: UIAlertController) {
+        present(alertController, animated: true, completion: nil)
+    }
 
     var seTabBarItem: UITabBarItem? {
         return UITabBarItem(title: "", image: R.image.tab_video(), tag: 0)
@@ -35,6 +38,8 @@ class Swap2ImageVC: UIViewController, SETabItemProvider {
 
 
     }
+    
+
 }
 
 extension Swap2ImageVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -52,6 +57,10 @@ extension Swap2ImageVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.backgroundColor = UIColor(white: 1, alpha: 0.3)
         cell.layer.cornerRadius = 20
         cell.clipsToBounds = true
+        if let cell0 = cell as? Cell0 {
+            // Nếu đúng, thiết lập Swap2ImageVC làm delegate cho Cell0
+            cell0.delegate = self
+        }
         return cell
     }
 
@@ -63,11 +72,6 @@ extension Swap2ImageVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension Swap2ImageVC: UICollectionViewDelegateFlowLayout{
 
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    //        let paddingWidth = (collectionView.frame.size.width - 406) / 2
-    //        let paddingHeight = (collectionView.frame.size.height - 525) / 2
-    //        return UIEdgeInsets(top: paddingHeight, left: paddingWidth, bottom: paddingHeight, right: paddingWidth)
-    //    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }

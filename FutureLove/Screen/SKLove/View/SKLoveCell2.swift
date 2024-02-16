@@ -136,7 +136,7 @@ class SKLoveCell2: UICollectionViewCell, UIImagePickerControllerDelegate, UINavi
         }else{
             checkNamNu = "?type=src_nu"
         }
-        APIService.shared.UploadImagesToGenRieng("https://metatechvn.store/upload-gensk/" + String(AppConstant.userId ?? 0) + checkNamNu, ImageUpload: image_Data,method: .POST, loading: true){data,error in
+        APIService.shared.UploadImagesToGenRieng("https://databaseswap.mangasocial.online/upload-gensk/" + String(AppConstant.userId ?? 0) + checkNamNu, ImageUpload: image_Data,method: .POST, loading: true){data,error in
             print("uploadding")
             completion(data, nil)
             print("done")

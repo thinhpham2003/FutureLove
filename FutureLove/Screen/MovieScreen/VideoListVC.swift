@@ -49,7 +49,7 @@ class VideoListVC: UIViewController , SETabItemProvider {
     }
     
     func loadListVideoAll(pageVideo:Int){
-        APIService.shared.ListVideoSwaped(page: pageVideo){response,error in
+        APIService.shared.ListVideoUserSwaped(id_user: AppConstant.userId ?? 0,page: pageVideo){response,error in
             self.listVideoPro = response
             self.collectionViewGood.reloadData()
             for item in self.listVideoPro{
