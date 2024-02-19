@@ -25,6 +25,7 @@ class Cell0: UICollectionViewCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showMenu))
         image2.isUserInteractionEnabled = true
         image2.addGestureRecognizer(tapGesture)
+        
     }
     @objc func showMenu() {
         // Hiển thị menu chọn tính năng
@@ -47,10 +48,12 @@ class Cell0: UICollectionViewCell {
     func handleSelectedOption(_ option: String) {
         // Xử lý khi người dùng chọn một tính năng
         switch option {
-//            case "Tính năng 1":
-//                // Chuyển đến trang mới cho tính năng 1
-//                let vc = Feature1ViewController()
-//                navigationController?.pushViewController(vc, animated: true)
+            case "Ảnh đã swap":
+                // Chuyển đến trang mới cho tính năng 1
+                let nextViewController = ListImageSwapedVC()
+                if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+                    navigationController.pushViewController(nextViewController, animated: true)
+                }
             case "Video đã swap":
                 // Chuyển đến trang mới cho tính năng 2
                 let nextViewController = ListSwapResultVC()

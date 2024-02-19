@@ -22,7 +22,7 @@ struct TempleVideoModel: Codable {
         if let temp = json["Field4"] as? String {linkThump = temp}
         return self
     }
-    
+
 }
 
 
@@ -51,7 +51,7 @@ struct Temple2VideoModel: Codable {
         if let temp = json["thumbnail"] as? String {thumbnail = temp}
         return self
     }
-    
+
 }
 
 struct ResultVideoModel: Codable {
@@ -67,7 +67,7 @@ struct ResultVideoModel: Codable {
     var count_view : Int?
     var thoigian_taosk:String?
     var thoigian_swap:String?
-    
+
     mutating func initLoad(_ json:[String:Any]) ->ResultVideoModel{
         if let temp = json["id_video"] as? String {id_video = temp}
         if let temp = json["link_image"] as? String {link_image = temp}
@@ -86,7 +86,7 @@ struct ResultVideoModel: Codable {
 
         return self
     }
-    
+
 }
 struct SukienGenBaby: Codable {
     var id: String?
@@ -192,7 +192,7 @@ struct VideoModel: Codable {
     var id_user : Int?
     var count_comment : Int?
     var count_view : Int?
-    
+
     mutating func initLoad(_ json:[String:Any]) ->VideoModel{
         if let temp = json["id_video"] as? String {id_video = temp}
         if let temp = json["link_image"] as? String {link_image = temp}
@@ -212,7 +212,7 @@ struct VideoModel: Codable {
         if let temp = json["count_view"] as? Int {count_view = temp}
         return self
     }
-    
+
 }
 struct SukienSwapVideo: Codable {
     var idSaved: String?
@@ -290,6 +290,40 @@ struct SukienSwap2Image: Codable {
             if let temp = data["id_user"] as? Int { id_user = temp }
         }
 
+        return self
+    }
+}
+
+/*
+ "sk_future_love": {}
+ "list_sukien_future_image": [
+ {
+ "loai_sukien": "swap_2face",
+ "id_sk_album": "null",
+ "album": "null",
+ "id_saved": "564502037641",
+ "link_src_goc": "/var/www/build_futurelove/image/image_user/236/video/236_vid_35532.jpg",
+ "link_tar_goc": "/var/www/build_futurelove/image/image_user/236/video/236_vid_47083.jpg",
+ "link_da_swap": "https://futurelove.online/image/gen_image/6661_277829602726/out/236_vid_47083.jpg",
+ "id_user": 236
+ }
+ */
+
+struct ListImageUserSwaped: Codable {
+    var loai_sukien: String?
+    var link_src_goc: String?
+    var link_tar_goc: String?
+    var link_da_swap: String?
+    var id_saved: String?
+    var id_user: Int?
+
+    mutating func initLoad(_ json:[String:Any]) -> ListImageUserSwaped {
+        if let temp = json["loai_sukien"] as? String { loai_sukien = temp }
+        if let temp = json["link_src_goc"] as? String { link_src_goc = temp }
+        if let temp = json["link_tar_goc"] as? String { link_tar_goc = temp }
+        if let temp = json["link_da_swap"] as? String { link_da_swap = temp }
+        if let temp = json["id_saved"] as? String { id_saved = temp }
+        if let temp = json["id_user"] as? Int { id_user = temp }
         return self
     }
 }

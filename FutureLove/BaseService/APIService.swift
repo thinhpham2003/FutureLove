@@ -1340,7 +1340,6 @@ class APIService:NSObject {
                 closure([ResultVideoModel](),nil)
             }
         }
-        // closure("Please Wait To Remove", nil)
     }
     //https://videoswap.mangasocial.online/getdata/genvideo?id_video=10&device_them_su_kien=fds&ip_them_su_kien=g4&id_user=6&image=/var/www/build_futurelove/image/image_user/3/video/3_vid_86963.jpg&ten_video=chao em
     func GenVideoSwap(device_them_su_kien:String,id_video:String,ip_them_su_kien:String,id_user:String,link_img:String, ten_video:String,closure: @escaping (_ response: DetailVideoModel?, _ error: Error?) -> Void) {
@@ -1464,6 +1463,30 @@ class APIService:NSObject {
         }
     }
 
+//https://databaseswap.mangasocial.online/get/list_2_image/id_image_swap_2face_all?id_user=236
+    func ListIMGUser(id_user:Int,closure: @escaping (_ response: [ListImageUserSwaped], _ error: Error?) -> Void) {
+        let linkUrl = "https://databaseswap.mangasocial.online/get/list_2_image/id_image_swap_2face_all?id_user=\(id_user)"
+        requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
+            var listVideoReturn : [ListImageUserSwaped] = [ListImageUserSwaped]()
+            if let data2 = data as? [String:Any]{
+                if let listTongToanBo =  data2["sk_future_love"] as? [String:Any]{
+                    //for item in listTongToanBo{
+                        if let listVideo2 = listTongToanBo["list_sukien_future_image"] as? [[String:Any]]{
+                            for item2 in listVideo2{
+                                var itemvideoAdd: ListImageUserSwaped = ListImageUserSwaped()
+                                itemvideoAdd = itemvideoAdd.initLoad(item2)
+                                listVideoReturn.append(itemvideoAdd)
+                            }
+                        }
+                    //}
+                    closure(listVideoReturn,nil)
+                }
+            }else{
+                closure([ListImageUserSwaped](),nil)
+            }
+            // closure("Please Wait To Remove", nil)
+        }
+    }
 
 
 

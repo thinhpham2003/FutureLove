@@ -644,7 +644,7 @@ struct _R {
     var swapFaceMp4: RswiftResources.FileResource { .init(name: "swap-face", pathExtension: "mp4", bundle: bundle, locale: LocaleReference.none) }
   }
 
-  /// This `_R.nib` struct is generated, and contains static references to 87 nibs.
+  /// This `_R.nib` struct is generated, and contains static references to 89 nibs.
   struct nib {
     let bundle: Foundation.Bundle
 
@@ -738,6 +738,9 @@ struct _R {
     /// Nib `CellFirst`.
     var cellFirst: RswiftResources.NibReference<CellFirst> { .init(name: "CellFirst", bundle: bundle) }
 
+    /// Nib `CellImage`.
+    var cellImage: RswiftResources.NibReference<CellImage> { .init(name: "CellImage", bundle: bundle) }
+
     /// Nib `CellSwap1`.
     var cellSwap1: RswiftResources.NibReference<FutureLove.CellSwap1> { .init(name: "CellSwap1", bundle: bundle) }
 
@@ -809,6 +812,9 @@ struct _R {
 
     /// Nib `ListImageOldVC`.
     var listImageOldVC: RswiftResources.NibReference<UIKit.UIView> { .init(name: "ListImageOldVC", bundle: bundle) }
+
+    /// Nib `ListImageSwapedVC`.
+    var listImageSwapedVC: RswiftResources.NibReference<UIKit.UIView> { .init(name: "ListImageSwapedVC", bundle: bundle) }
 
     /// Nib `ListSelectSwapVideoVC`.
     var listSelectSwapVideoVC: RswiftResources.NibReference<UIKit.UIView> { .init(name: "ListSelectSwapVideoVC", bundle: bundle) }

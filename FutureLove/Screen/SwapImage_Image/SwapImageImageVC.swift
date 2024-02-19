@@ -12,7 +12,7 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
     var seTabBarItem: UITabBarItem? {
         return UITabBarItem(title: "", image: R.image.tab_video(), tag: 0)
     }
-
+    var imageSwaped: ListImageUserSwaped?
     @IBOutlet weak var plush1: UIImageView!
     @IBOutlet weak var plush2: UIImageView!
     @IBOutlet weak var imageUpload1: UIImageView!
@@ -42,14 +42,53 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
             // Nếu chưa đăng nhập, chuyển hướng sang màn hình đăng nhập
             self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
         } 
-//        else {
-//            // Nếu đã đăng nhập, thiết lập màn hình chính là TabbarViewController
-//            self.navigationController?.setRootViewController(viewController: SwapImageImageVC(), controllerType: SwapImageImageVC.self)
-//        }
-        btnSave.isHidden = true
-        btnDownload.isHidden = true
-        backGroundBtnSave.isHidden = true
-        backGroundBtnDowload.isHidden = true
+        //replace(target: "https://futurelove.online", withString:"/var/www/build_futurelove")
+        if let imageSwaped = imageSwaped {
+            plush1.isHidden = true
+            plush2.isHidden = true
+            image1Link = imageSwaped.link_src_goc!.replace(target: "/var/www/build_futurelove", withString: "https://futurelove.online")
+            image2Link = imageSwaped.link_tar_goc!.replace(target: "/var/www/build_futurelove", withString: "https://futurelove.online")
+            imageSwapUrl = imageSwaped.link_da_swap!
+            if let url = URL(string: image1Link) {
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.imageUpload1.image = image
+                        }
+                    }
+                }.resume()
+            }
+            if let url = URL(string: image2Link) {
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.imageUpload2.image = image
+                        }
+                    }
+                }.resume()
+            }
+
+            if let url = URL(string: imageSwapUrl) {
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.imageSwap.image = image
+                        }
+                    }
+                }.resume()
+            }
+            configureImageView(imageUpload1)
+            configureImageView(imageUpload2)
+            replaceBtn()
+
+        }
+        else{
+            btnSave.isHidden = true
+            btnDownload.isHidden = true
+            backGroundBtnSave.isHidden = true
+            backGroundBtnDowload.isHidden = true
+        }
+
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = UIScreen.main.bounds
         gradientLayer.colors = [
