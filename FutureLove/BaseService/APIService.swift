@@ -1245,29 +1245,29 @@ class APIService:NSObject {
     }
 
     //
-    func ListVideoSwaped(page:Int,closure: @escaping (_ response: [VideoModel], _ error: Error?) -> Void) {
-        let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/video/" + String(page)
-        requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
-            var listVideoReturn : [VideoModel] = [VideoModel]()
-            if let data2 = data as? [String:Any]{
-                if let listTongToanBo =  data2["list_sukien_video"] as? [[String:Any]]{
-                    for item in listTongToanBo{
-                        if let listVideo2 = item["sukien_video"] as? [[String:Any]]{
-                            for item2 in listVideo2{
-                                var itemvideoAdd: VideoModel = VideoModel()
-                                itemvideoAdd = itemvideoAdd.initLoad(item2)
-                                listVideoReturn.append(itemvideoAdd)
-                            }
-                        }
-                    }
-                    closure(listVideoReturn,nil)
-                }
-            }else{
-                closure([VideoModel](),nil)
-            }
-            // closure("Please Wait To Remove", nil)
-        }
-    }
+//    func ListVideoSwaped(page:Int,closure: @escaping (_ response: [VideoModel], _ error: Error?) -> Void) {
+//        let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/video/" + String(page)
+//        requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
+//            var listVideoReturn : [VideoModel] = [VideoModel]()
+//            if let data2 = data as? [String:Any]{
+//                if let listTongToanBo =  data2["list_sukien_video"] as? [[String:Any]]{
+//                    for item in listTongToanBo{
+//                        if let listVideo2 = item["sukien_video"] as? [[String:Any]]{
+//                            for item2 in listVideo2{
+//                                var itemvideoAdd: VideoModel = VideoModel()
+//                                itemvideoAdd = itemvideoAdd.initLoad(item2)
+//                                listVideoReturn.append(itemvideoAdd)
+//                            }
+//                        }
+//                    }
+//                    closure(listVideoReturn,nil)
+//                }
+//            }else{
+//                closure([VideoModel](),nil)
+//            }
+//            // closure("Please Wait To Remove", nil)
+//        }
+//    }
 
     func ListVideoUserSwaped(id_user: Int, page:Int,closure: @escaping (_ response: [VideoModel], _ error: Error?) -> Void) {
         let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/user/video/\(id_user)?trang=\(page)"
@@ -1317,16 +1317,16 @@ class APIService:NSObject {
         }
         // closure("Please Wait To Remove", nil)
     }
-    func listAllVideoSwaped(page:Int,closure: @escaping (_ response: [ResultVideoModel], _ error: Error?) -> Void) {
-        let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/video/" + String(page)
+    func listAllVideoSwaped(id_user:Int,closure: @escaping (_ response: [VideoUserSwaped], _ error: Error?) -> Void) {
+        let linkUrl = "https://databaseswap.mangasocial.online/get/list_2_image/id_image_swap_2face_all?id_user=\(id_user)"
         requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
-            var listVideoReturn : [ResultVideoModel] = [ResultVideoModel]()
+            var listVideoReturn : [VideoUserSwaped] = [VideoUserSwaped]()
             if let data = data as? [String:Any]{
                 if let data2 = data["list_sukien_video"] as? [[String:Any]]{
                     for item in data2{
                         if let dataListSuKien = item["sukien_video"] as? [[String:Any]]{
                             for item2 in dataListSuKien{
-                                var itemvideoAdd: ResultVideoModel = ResultVideoModel()
+                                var itemvideoAdd: VideoUserSwaped = VideoUserSwaped()
                                 itemvideoAdd = itemvideoAdd.initLoad(item2)
                                 listVideoReturn.append(itemvideoAdd)
                             }
@@ -1334,10 +1334,10 @@ class APIService:NSObject {
                     }
                     closure(listVideoReturn,nil)
                 }else{
-                    closure([ResultVideoModel](),nil)
+                    closure([VideoUserSwaped](),nil)
                 }
             }else{
-                closure([ResultVideoModel](),nil)
+                closure([VideoUserSwaped](),nil)
             }
         }
     }

@@ -61,23 +61,34 @@ extension ListSwapResultVC: UICollectionViewDelegate, UICollectionViewDataSource
             }
             self.collectionViewPage.reloadData()
         }else{
+            /*
+             "id_video": "547492950126",
+             "link_image": "https://futurelove.online/image/image_user/236/video/236_vid_66212.jpg",
+             "link_vid_swap": "https://futurelove.online/image/gen_video/12561_123015919673/user_236_120192_7.mp4",
+             "link_video_goc": "https://futurelove.online/image/video_sk/7.mp4",
+             "thoigian_swap": "40.16715335845947",
+             "ten_su_kien": "swapvideo.mp4",
+             "noidung_sukien": "abc",
+             "id_video_swap": "7",
+             "thoigian_taosk": "2024-02-10, 23:16:12",
+             "id_user": 236,
+             "count_comment": 0,
+             "count_view": 0
+             */
             let vc = DetailSwapVideoVC(nibName: "DetailSwapVideoVC", bundle: nil)
             var itemLink:DetailVideoModel = DetailVideoModel()
             itemLink.linkimg = self.listTemplateVideo[indexPath.row].link_image
             itemLink.link_vid_swap = self.listTemplateVideo[indexPath.row].link_vid_swap
             itemLink.noidung = self.listTemplateVideo[indexPath.row].noidung_sukien
             itemLink.id_sukien_video = self.listTemplateVideo[indexPath.row].id_video
-            itemLink.id_video_swap = self.listTemplateVideo[indexPath.row].id_video
+            itemLink.id_video_swap = self.listTemplateVideo[indexPath.row].id_video_swap
             itemLink.ten_video = self.listTemplateVideo[indexPath.row].ten_su_kien
             itemLink.idUser = self.listTemplateVideo[indexPath.row].id_user
-//            itemLink.thoigian_swap = Floatself.listTemplateVideo[indexPath.row].thoigian_taovid
-//\            itemLink.device_tao_vid = self.listTemplateVideo[indexPath.row].thoigian_taovid
             itemLink.thoigian_sukien = self.listTemplateVideo[indexPath.row].thoigian_taosk
-            itemLink.link_video_goc = self.listTemplateVideo[indexPath.row].link_vid_swap
+            itemLink.link_video_goc = self.listTemplateVideo[indexPath.row].link_video_goc
             itemLink.ip_tao_vid = self.listTemplateVideo[indexPath.row].id_video
-            itemLink.link_vid_swap = self.listTemplateVideo[indexPath.row].link_vid_swap
             vc.itemDataSend = itemLink
-            vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
     }

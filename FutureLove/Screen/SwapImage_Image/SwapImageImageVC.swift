@@ -44,12 +44,14 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
         } 
         //replace(target: "https://futurelove.online", withString:"/var/www/build_futurelove")
         if let imageSwaped = imageSwaped {
+            checkNu = true
+            checkNam = true
             plush1.isHidden = true
             plush2.isHidden = true
-            image1Link = imageSwaped.link_src_goc!.replace(target: "/var/www/build_futurelove", withString: "https://futurelove.online")
-            image2Link = imageSwaped.link_tar_goc!.replace(target: "/var/www/build_futurelove", withString: "https://futurelove.online")
+            image1Link = imageSwaped.link_src_goc!
+            image2Link = imageSwaped.link_tar_goc!
             imageSwapUrl = imageSwaped.link_da_swap!
-            if let url = URL(string: image1Link) {
+            if let url = URL(string: image1Link.replace(target: "/var/www/build_futurelove", withString: "https://futurelove.online")) {
                 URLSession.shared.dataTask(with: url) { (data, response, error) in
                     if let data = data, let image = UIImage(data: data) {
                         DispatchQueue.main.async {
@@ -58,7 +60,7 @@ class SwapImageImageVC: UIViewController, UIImagePickerControllerDelegate, UINav
                     }
                 }.resume()
             }
-            if let url = URL(string: image2Link) {
+            if let url = URL(string: image2Link.replace(target: "/var/www/build_futurelove", withString: "https://futurelove.online")) {
                 URLSession.shared.dataTask(with: url) { (data, response, error) in
                     if let data = data, let image = UIImage(data: data) {
                         DispatchQueue.main.async {

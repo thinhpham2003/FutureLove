@@ -54,10 +54,25 @@ struct Temple2VideoModel: Codable {
 
 }
 
+/*
+ "id_video": "547492950126",
+ "link_image": "https://futurelove.online/image/image_user/236/video/236_vid_66212.jpg",
+ "link_vid_swap": "https://futurelove.online/image/gen_video/12561_123015919673/user_236_120192_7.mp4",
+ "link_video_goc": "https://futurelove.online/image/video_sk/7.mp4",
+ "thoigian_swap": "40.16715335845947",
+ "ten_su_kien": "swapvideo.mp4",
+ "noidung_sukien": "abc",
+ "id_video_swap": "7",
+ "thoigian_taosk": "2024-02-10, 23:16:12",
+ "id_user": 236,
+ "count_comment": 0,
+ "count_view": 0
+ */
 struct ResultVideoModel: Codable {
     var id_video : String?
     var link_image : String?
     var link_vid_swap : String?
+    var link_video_goc : String?
     var ten_su_kien : String?
     var noidung_sukien : String?
     var id_video_swap : String?
@@ -73,6 +88,9 @@ struct ResultVideoModel: Codable {
         if let temp = json["link_image"] as? String {link_image = temp}
         if let temp = json["link_vid_swap"] as? String {
             link_vid_swap = temp
+        }
+        if let temp = json["link_video_goc"] as? String {
+            link_video_goc = temp
         }
         if let temp = json["thoigian_swap"] as? String {thoigian_swap = temp}
         if let temp = json["thoigian_taosk"] as? String {thoigian_taosk = temp}
@@ -119,6 +137,17 @@ struct SukienGenBaby: Codable {
     }
 }
 /*
+ "list_sukien_future_video": [
+ {
+ "id_saved": "547492950126",
+ "link_video_goc": "7",
+ "link_image": "https://futurelove.online/image/image_user/236/video/236_vid_66212.jpg",
+ "link_video_da_swap": "https://futurelove.online/image/gen_video/12561_123015919673/user_236_120192_7.mp4",
+ "id_user": 236,
+ "thoigian_sukien": "2024-02-10, 23:16:12"
+ },
+ */
+/*
  "list_sukien_video": [
  {
  "sukien_video": [
@@ -140,42 +169,31 @@ struct SukienGenBaby: Codable {
  }
  */
 struct VideoUserSwaped: Codable {
-    var id_video : String?
+    var id_saved : String?
     var link_image : String?
-    var link_vid_swap : String?
+    var link_video_da_swap : String?
     var link_video_goc : String?
-    var thoigian_swap : String?
-    var ten_su_kien : String?
-    var noidung_sukien : String?
-    var id_video_swap : String?
-    var thoigian_taosk : String?
+    var thoigian_sukien : String?
     var id_user : Int?
-    var count_comment : Int?
-    var count_view : Int?
 
     mutating func initLoad(_ json:[String:Any]) ->VideoUserSwaped{
-        if let data = json["list_sukien_video"] as? [[String:Any]] {
-            for items in data {
-                if let item = items["sukien_video"] as? [[String:Any]]{
-                    if let temp = json["id_video"] as? String {id_video = temp}
+//        if let data = json["list_sukien_video"] as? [[String:Any]] {
+//            for items in data {
+//                if let item = items["sukien_video"] as? [[String:Any]]{
+                    if let temp = json["id_video"] as? String {id_saved = temp}
                     if let temp = json["link_image"] as? String {link_image = temp}
                     if let temp = json["link_vid_swap"] as? String {
-                        link_vid_swap = temp
+                        link_video_da_swap = temp
                     }
-                    if let temp = json["ten_su_kien"] as? String {ten_su_kien = temp}
-                    if let temp = json["noidung_sukien"] as? String {noidung_sukien = temp}
-                    if let temp = json["id_video_swap"] as? String {
-                        id_video_swap = temp
+                    if let temp = json["link_video_goc"] as? String {
+                        link_video_goc = temp
                     }
-                    if let temp = json["thoigian_taosk"] as? String {thoigian_taosk = temp}
+                    if let temp = json["thoigian_sukien"] as? String {thoigian_sukien = temp}
                     if let temp = json["id_user"] as? Int {id_user = temp}
-                    if let temp = json["count_comment"] as? Int {
-                        count_comment = temp
-                    }
-                    if let temp = json["count_view"] as? Int {count_view = temp}
-                }
-            }
-        }
+
+//                }
+//            }
+//        }
 
         return self
     }
