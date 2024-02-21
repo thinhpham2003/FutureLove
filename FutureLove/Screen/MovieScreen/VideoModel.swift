@@ -177,23 +177,60 @@ struct VideoUserSwaped: Codable {
     var id_user : Int?
 
     mutating func initLoad(_ json:[String:Any]) ->VideoUserSwaped{
-//        if let data = json["list_sukien_video"] as? [[String:Any]] {
-//            for items in data {
-//                if let item = items["sukien_video"] as? [[String:Any]]{
-                    if let temp = json["id_video"] as? String {id_saved = temp}
-                    if let temp = json["link_image"] as? String {link_image = temp}
-                    if let temp = json["link_vid_swap"] as? String {
-                        link_video_da_swap = temp
-                    }
-                    if let temp = json["link_video_goc"] as? String {
-                        link_video_goc = temp
-                    }
-                    if let temp = json["thoigian_sukien"] as? String {thoigian_sukien = temp}
-                    if let temp = json["id_user"] as? Int {id_user = temp}
+        //        if let data = json["list_sukien_video"] as? [[String:Any]] {
+        if let temp = json["id_video"] as? String {id_saved = temp}
+        if let temp = json["link_image"] as? String {link_image = temp}
+        if let temp = json["link_vid_swap"] as? String {
+            link_video_da_swap = temp
+        }
+        if let temp = json["link_video_goc"] as? String {
+            link_video_goc = temp
+        }
+        if let temp = json["thoigian_sukien"] as? String {thoigian_sukien = temp}
+        if let temp = json["id_user"] as? Int {id_user = temp}
+        //        }
 
-//                }
-//            }
-//        }
+        return self
+    }
+
+}
+/*
+ id_su_kien_swap_image": [
+ {
+ "id_saved": "508261353404",
+ "link_nam_goc": "https://futurelove.online/image/image_user/236/nam/236_nam_75249.jpg",
+ "link_nu_goc": "https://futurelove.online/image/image_user/236/nu/236_nu_74522.jpg",
+ "link_baby_swap": "https://futurelove.online/image/image_sk_baby/nam_61.jpg",
+ "link_da_swap": "https://futurelove.online/image/gen_image/6661_564737627895/out/nam_61.jpg",
+ "id_user": 236,
+ "thoigian_sukien": "2024-02-17, 23:32:46"
+ },
+ */
+struct BabyGenn: Codable {
+    var id_saved : String?
+    var link_nam_goc : String?
+    var link_nu_goc : String?
+    var link_baby_swap : String?
+    var link_da_swap : String?
+    var thoigian_sukien : String?
+    var id_user : Int?
+
+    mutating func initLoad(_ json:[String:Any]) ->BabyGenn{
+        //        if let data = json["list_sukien_video"] as? [[String:Any]] {
+        if let temp = json["id_saved"] as? String {id_saved = temp}
+        if let temp = json["link_nam_goc"] as? String {link_nam_goc = temp}
+        if let temp = json["link_nu_goc"] as? String {
+            link_nu_goc = temp
+        }
+        if let temp = json["link_baby_swap"] as? String {
+            link_baby_swap = temp
+        }
+        if let temp = json["link_da_swap"] as? String {
+            link_da_swap = temp
+        }
+        if let temp = json["thoigian_sukien"] as? String {thoigian_sukien = temp}
+        if let temp = json["id_user"] as? Int {id_user = temp}
+        //        }
 
         return self
     }

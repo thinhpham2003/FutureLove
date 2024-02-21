@@ -644,7 +644,7 @@ struct _R {
     var swapFaceMp4: RswiftResources.FileResource { .init(name: "swap-face", pathExtension: "mp4", bundle: bundle, locale: LocaleReference.none) }
   }
 
-  /// This `_R.nib` struct is generated, and contains static references to 89 nibs.
+  /// This `_R.nib` struct is generated, and contains static references to 91 nibs.
   struct nib {
     let bundle: Foundation.Bundle
 
@@ -756,6 +756,9 @@ struct _R {
     /// Nib `ChangerAvatarViewController`.
     var changerAvatarViewController: RswiftResources.NibReference<UIKit.UIView> { .init(name: "ChangerAvatarViewController", bundle: bundle) }
 
+    /// Nib `CollectionViewCell`.
+    var collectionViewCell: RswiftResources.NibReference<CollectionViewCell> { .init(name: "CollectionViewCell", bundle: bundle) }
+
     /// Nib `CommentTableViewCell`.
     var commentTableViewCell: RswiftResources.NibReference<CommentTableViewCell> { .init(name: "CommentTableViewCell", bundle: bundle) }
 
@@ -806,6 +809,9 @@ struct _R {
 
     /// Nib `ListAccountVC`.
     var listAccountVC: RswiftResources.NibReference<UIKit.UIView> { .init(name: "ListAccountVC", bundle: bundle) }
+
+    /// Nib `ListBabyVC`.
+    var listBabyVC: RswiftResources.NibReference<UIKit.UIView> { .init(name: "ListBabyVC", bundle: bundle) }
 
     /// Nib `ListImageCLVCell`.
     var listImageCLVCell: RswiftResources.NibReference<ListImageCLVCell> { .init(name: "ListImageCLVCell", bundle: bundle) }

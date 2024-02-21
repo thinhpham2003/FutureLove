@@ -12,7 +12,7 @@ protocol Cell0Delegate: AnyObject {
 class Cell0: UICollectionViewCell {
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var image2: UIImageView!
-    var menuOptions: [String] = ["Image Swapped", "Video Swapped"]
+    var menuOptions: [String] = ["Image Swapped", "Video Swapped", "Baby Gen"]
     weak var delegate: Cell0Delegate?
 
     func someMethod() {
@@ -55,12 +55,13 @@ class Cell0: UICollectionViewCell {
                 if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
                     navigationController.pushViewController(nextViewController, animated: true)
                 }
-            case "Video Swapped":
+            case "Baby Gen":
                 // Chuyển đến trang mới cho tính năng 2
-                let nextViewController = ListSwapResultVC()
+                let nextViewController = ListBabyVC()
                 if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
                     navigationController.pushViewController(nextViewController, animated: true)
                 }
+
 
 //            case "Tính năng 3":
 //                // Chuyển đến trang mới cho tính năng 3

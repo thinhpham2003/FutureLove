@@ -8,6 +8,7 @@
 import UIKit
 
 class GenBabyVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var imageSwaped : BabyGenn?
     @IBOutlet weak var plusNam: UIImageView!
     @IBOutlet weak var plusNu: UIImageView!
     @IBOutlet weak var imageNam: UIImageView!
@@ -38,6 +39,51 @@ class GenBabyVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             // Nếu chưa đăng nhập, chuyển hướng sang màn hình đăng nhập
             self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
         }
+        if let imageSwaped = imageSwaped {
+
+            checkNu = true
+            checkNam = true
+            plusNam.isHidden = true
+            plusNu.isHidden = true
+            imageboyLink = imageSwaped.link_nam_goc!
+            imageGirlLink = imageSwaped.link_nu_goc!
+            imageBabyUrl = imageSwaped.link_da_swap!
+            if let url = URL(string: imageboyLink.replace(target: "/var/www/build_futurelove", withString: "https://futurelove.online")) {
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.imageNam.image = image
+                        }
+                    }
+                }.resume()
+            }
+            if let url = URL(string: imageGirlLink.replace(target: "/var/www/build_futurelove", withString: "https://futurelove.online")) {
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.imageNu.image = image
+                        }
+                    }
+                }.resume()
+            }
+
+            if let url = URL(string: imageBabyUrl) {
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.imageLove.image = image
+                        }
+                    }
+                }.resume()
+            }
+            configureImageView(imageNam)
+            configureImageView(imageNu)
+            configureImageView2(imageLove)
+
+        }
+        else{
+            self.unreplace()
+        }
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = UIScreen.main.bounds
         gradientLayer.colors = [
@@ -47,7 +93,7 @@ class GenBabyVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
         view.layer.insertSublayer(gradientLayer, at: 0)
-        self.unreplace()
+
 
         let tapGestureNam = UITapGestureRecognizer(target: self, action: #selector(imageUpdateTapped(_:)))
         plusNam.isUserInteractionEnabled = true

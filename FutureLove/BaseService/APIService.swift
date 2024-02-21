@@ -1244,30 +1244,7 @@ class APIService:NSObject {
         }.resume()
     }
 
-    //
-//    func ListVideoSwaped(page:Int,closure: @escaping (_ response: [VideoModel], _ error: Error?) -> Void) {
-//        let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/video/" + String(page)
-//        requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
-//            var listVideoReturn : [VideoModel] = [VideoModel]()
-//            if let data2 = data as? [String:Any]{
-//                if let listTongToanBo =  data2["list_sukien_video"] as? [[String:Any]]{
-//                    for item in listTongToanBo{
-//                        if let listVideo2 = item["sukien_video"] as? [[String:Any]]{
-//                            for item2 in listVideo2{
-//                                var itemvideoAdd: VideoModel = VideoModel()
-//                                itemvideoAdd = itemvideoAdd.initLoad(item2)
-//                                listVideoReturn.append(itemvideoAdd)
-//                            }
-//                        }
-//                    }
-//                    closure(listVideoReturn,nil)
-//                }
-//            }else{
-//                closure([VideoModel](),nil)
-//            }
-//            // closure("Please Wait To Remove", nil)
-//        }
-//    }
+
 
     func ListVideoUserSwaped(id_user: Int, page:Int,closure: @escaping (_ response: [VideoModel], _ error: Error?) -> Void) {
         let linkUrl = "https://databaseswap.mangasocial.online/lovehistory/user/video/\(id_user)?trang=\(page)"
@@ -1484,10 +1461,28 @@ class APIService:NSObject {
             }else{
                 closure([ListImageUserSwaped](),nil)
             }
+        }
+    }
+    //https://databaseswap.mangasocial.online/get/list_2_image/id_image_swap_baby_all_future_love?id_user=236
+    func ListBabyUser(id_user:Int,closure: @escaping (_ response: [BabyGenn], _ error: Error?) -> Void) {
+        let linkUrl = "https://databaseswap.mangasocial.online/get/list_2_image/id_image_swap_baby_all_future_love?id_user=\(id_user)"
+        requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
+            var listVideoReturn : [BabyGenn] = [BabyGenn]()
+            if let data2 = data as? [String:Any]{
+                if let listTongToanBo =  data2["id_su_kien_swap_image"] as? [[String:Any]]{
+                        for item2 in listTongToanBo{
+                            var itemvideoAdd: BabyGenn = BabyGenn()
+                            itemvideoAdd = itemvideoAdd.initLoad(item2)
+                            listVideoReturn.append(itemvideoAdd)
+                        }
+                    closure(listVideoReturn,nil)
+                }
+            }else{
+                closure([BabyGenn](),nil)
+            }
             // closure("Please Wait To Remove", nil)
         }
     }
-
 
 
 
