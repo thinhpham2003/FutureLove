@@ -41,6 +41,12 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Plus_Icon_UIA" translatesAutoresizingMaskIntoConstraints="NO" id="lXX-YH-GHt">
                     <rect key="frame" x="81" y="162" width="30" height="30"/>
                 </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Image (1)" translatesAutoresizingMaskIntoConstraints="NO" id="lv3-bA-AjV">
+                    <rect key="frame" x="40" y="529" width="278" height="226"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Image (2)" translatesAutoresizingMaskIntoConstraints="NO" id="z7B-oo-iN3">
+                    <rect key="frame" x="0.0" y="635" width="183.33333333333331" height="209"/>
+                </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Ellipse 25" translatesAutoresizingMaskIntoConstraints="NO" id="cSi-m3-EJx">
                     <rect key="frame" x="256" y="135" width="84" height="84"/>
                 </imageView>
@@ -110,14 +116,20 @@
                         <action selector="dowloadEventBtn:" destination="-1" eventType="touchUpInside" id="970-pX-SH9"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Poh-j4-1G1">
+                    <rect key="frame" x="0.0" y="577" width="375.33333333333331" height="275"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Msy-30-RW5" firstAttribute="top" secondItem="kbx-oD-oYP" secondAttribute="bottom" constant="206" id="19X-cJ-rDb"/>
                 <constraint firstItem="Msy-30-RW5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1Qf-XR-4UJ"/>
+                <constraint firstItem="z7B-oo-iN3" firstAttribute="top" secondItem="Msy-30-RW5" secondAttribute="bottom" constant="209" id="1nx-f7-zt1"/>
                 <constraint firstItem="e3f-5w-3L5" firstAttribute="centerY" secondItem="ADo-cB-lAS" secondAttribute="centerY" id="39J-yP-ytg"/>
                 <constraint firstItem="Msy-30-RW5" firstAttribute="top" secondItem="ZzJ-LU-QPN" secondAttribute="bottom" constant="160" id="7Xy-L8-Jol"/>
+                <constraint firstItem="Msy-30-RW5" firstAttribute="leading" secondItem="lv3-bA-AjV" secondAttribute="trailing" constant="-121.33333333333334" id="9Uy-4T-9x3"/>
                 <constraint firstItem="Msy-30-RW5" firstAttribute="leading" secondItem="ADo-cB-lAS" secondAttribute="trailing" constant="-74.333333333333343" id="BK7-q3-kbJ"/>
                 <constraint firstItem="Msy-30-RW5" firstAttribute="top" secondItem="lXX-YH-GHt" secondAttribute="bottom" constant="234" id="CF1-Oo-pbw"/>
                 <constraint firstItem="Msy-30-RW5" firstAttribute="top" secondItem="Fce-d4-yAl" secondAttribute="bottom" constant="160" id="D5S-Wf-M3f"/>
@@ -142,6 +154,8 @@
                 <constraint firstItem="Msy-30-RW5" firstAttribute="leading" secondItem="qoy-Oq-x3E" secondAttribute="trailing" constant="59.666666666666657" id="nTp-Qd-fuO"/>
                 <constraint firstItem="Msy-30-RW5" firstAttribute="top" secondItem="e3f-5w-3L5" secondAttribute="bottom" constant="100" id="oX0-fw-mcb"/>
                 <constraint firstItem="XIF-q7-zBg" firstAttribute="top" secondItem="Msy-30-RW5" secondAttribute="bottom" constant="152" id="p1s-We-tPt"/>
+                <constraint firstItem="Msy-30-RW5" firstAttribute="leading" secondItem="z7B-oo-iN3" secondAttribute="trailing" constant="13.333333333333343" id="p8Q-fO-cmt"/>
+                <constraint firstItem="lv3-bA-AjV" firstAttribute="top" secondItem="Msy-30-RW5" secondAttribute="bottom" constant="103" id="pRc-nG-TxP"/>
                 <constraint firstItem="Msy-30-RW5" firstAttribute="leading" secondItem="XIF-q7-zBg" secondAttribute="trailing" constant="-74.333333333333343" id="s6o-nB-oAL"/>
                 <constraint firstItem="Msy-30-RW5" firstAttribute="top" secondItem="cSi-m3-EJx" secondAttribute="bottom" constant="207" id="wbn-v8-3dY"/>
                 <constraint firstItem="Msy-30-RW5" firstAttribute="leading" secondItem="e3f-5w-3L5" secondAttribute="trailing" constant="-74.333333333333343" id="xfa-Dx-Q7G"/>
@@ -158,6 +172,9 @@
         <image name="Frame 48097545" width="28" height="28"/>
         <image name="Frame 48097546" width="28" height="28"/>
         <image name="Frame 48097840" width="67" height="59"/>
+        <image name="Image" width="375" height="275"/>
+        <image name="Image (1)" width="278" height="226"/>
+        <image name="Image (2)" width="183" height="209"/>
         <image name="Plus_Icon_UIA" width="30" height="30"/>
         <image name="button" width="150" height="40"/>
         <systemColor name="systemBackgroundColor">

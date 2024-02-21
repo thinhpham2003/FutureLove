@@ -38,7 +38,15 @@ class GenBabyVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             // Nếu chưa đăng nhập, chuyển hướng sang màn hình đăng nhập
             self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
         }
-
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = UIScreen.main.bounds
+        gradientLayer.colors = [
+            UIColor(red: 229/255.0, green: 166/255.0, blue: 190/255.0, alpha: 1.0).cgColor,
+            UIColor(red: 171/255.0, green: 122/255.0, blue: 203/255.0, alpha: 1.0).cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        view.layer.insertSublayer(gradientLayer, at: 0)
         self.unreplace()
 
         let tapGestureNam = UITapGestureRecognizer(target: self, action: #selector(imageUpdateTapped(_:)))

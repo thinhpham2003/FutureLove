@@ -19,6 +19,7 @@ class SwapImage_VideoTemplateVC: UIViewController, SETabItemProvider {
     let api = APIService()
     var indexSellected = -1
     var check : Bool = true
+    var gradientLayer = CAGradientLayer()
     override func viewDidLoad() {
         super.viewDidLoad()
         if AppConstant.userId == nil {
@@ -28,15 +29,21 @@ class SwapImage_VideoTemplateVC: UIViewController, SETabItemProvider {
 //        else {
 //            self.navigationController?.setRootViewController(viewController: SwapImage_VideoTemplateVC(), controllerType: SwapImage_VideoTemplateVC.self)
 //        }
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = UIScreen.main.bounds
+        let gradientView = UIView(frame: UIScreen.main.bounds)
+
+        // Thêm gradient layer vào view mới
+        gradientLayer.frame = gradientView.bounds
         gradientLayer.colors = [
             UIColor(red: 229/255.0, green: 166/255.0, blue: 190/255.0, alpha: 1.0).cgColor,
             UIColor(red: 171/255.0, green: 122/255.0, blue: 203/255.0, alpha: 1.0).cgColor
         ]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        view.layer.insertSublayer(gradientLayer, at: 0)
+        gradientView.layer.insertSublayer(gradientLayer, at: 0)
+
+        // Đặt view chứa gradient layer vào phía sau của tất cả các view khác trên màn hình
+        view.insertSubview(gradientView, at: 0)
+
         collectionViewMain.backgroundColor = UIColor.clear
 
         api.listTemplateVideoSwap { [weak self] videos, error in

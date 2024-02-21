@@ -16,29 +16,40 @@ class Swap2ImageVC: UIViewController, SETabItemProvider, Cell0Delegate {
     var seTabBarItem: UITabBarItem? {
         return UITabBarItem(title: "", image: R.image.tab_video(), tag: 0)
     }
+    var gradientLayer = CAGradientLayer()
     @IBOutlet weak var collectionViewMain: UICollectionView!
-    let cellNames = ["Cell0", "Cell1", "Cell2", "Cell3", "Cell4", "Cell5", "Cell6", "Cell7", "Cell8", "Cell9"]
+    let cellNames = ["Cell0", "Cell1", "Cell2", "Cell3", "Cell4", "Cell5", "Cell6"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = UIScreen.main.bounds
+
+        // Tạo một view mới để chứa gradient layer
+        let gradientView = UIView(frame: UIScreen.main.bounds)
+
+        // Thêm gradient layer vào view mới
+        gradientLayer.frame = gradientView.bounds
         gradientLayer.colors = [
             UIColor(red: 229/255.0, green: 166/255.0, blue: 190/255.0, alpha: 1.0).cgColor,
             UIColor(red: 171/255.0, green: 122/255.0, blue: 203/255.0, alpha: 1.0).cgColor
         ]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        view.layer.insertSublayer(gradientLayer, at: 0)
+        gradientView.layer.insertSublayer(gradientLayer, at: 0)
+
+        // Đặt view chứa gradient layer vào phía sau của tất cả các view khác trên màn hình
+        view.insertSubview(gradientView, at: 0)
+
         collectionViewMain.backgroundColor = UIColor.clear
 
         for cellName in cellNames {
             collectionViewMain.register(UINib(nibName: cellName, bundle: nil), forCellWithReuseIdentifier: cellName)
         }
-
-
-
     }
-    
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        gradientLayer.frame = view.bounds
+    }
+
 
 }
 
@@ -63,7 +74,7 @@ extension Swap2ImageVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         return cell
     }
-
+    
     //Name section
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         return  UICollectionReusableView()

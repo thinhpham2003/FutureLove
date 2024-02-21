@@ -12,7 +12,7 @@ protocol Cell0Delegate: AnyObject {
 class Cell0: UICollectionViewCell {
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var image2: UIImageView!
-    var menuOptions: [String] = ["Ảnh đã swap", "Video đã swap"]
+    var menuOptions: [String] = ["Image Swapped", "Video Swapped"]
     weak var delegate: Cell0Delegate?
 
     func someMethod() {
@@ -22,6 +22,7 @@ class Cell0: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showMenu))
         image2.isUserInteractionEnabled = true
         image2.addGestureRecognizer(tapGesture)
@@ -29,7 +30,7 @@ class Cell0: UICollectionViewCell {
     }
     @objc func showMenu() {
         // Hiển thị menu chọn tính năng
-        let alertController = UIAlertController(title: "Chọn Tính Năng", message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Select Features", message: nil, preferredStyle: .actionSheet)
 
         for option in menuOptions {
             let action = UIAlertAction(title: option, style: .default) { _ in
@@ -39,7 +40,7 @@ class Cell0: UICollectionViewCell {
             alertController.addAction(action)
         }
 
-        let cancelAction = UIAlertAction(title: "Huỷ", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
 
         delegate?.presentAlertController(alertController)
@@ -48,13 +49,13 @@ class Cell0: UICollectionViewCell {
     func handleSelectedOption(_ option: String) {
         // Xử lý khi người dùng chọn một tính năng
         switch option {
-            case "Ảnh đã swap":
+            case "Image Swapped":
                 // Chuyển đến trang mới cho tính năng 1
                 let nextViewController = ListImageSwapedVC()
                 if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
                     navigationController.pushViewController(nextViewController, animated: true)
                 }
-            case "Video đã swap":
+            case "Video Swapped":
                 // Chuyển đến trang mới cho tính năng 2
                 let nextViewController = ListSwapResultVC()
                 if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {

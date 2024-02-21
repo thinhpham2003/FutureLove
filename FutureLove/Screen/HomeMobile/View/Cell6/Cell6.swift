@@ -34,7 +34,14 @@ extension Cell6: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellConName, for: indexPath)
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let nextViewController = SwapImage_VideoTemplateVC()
 
+        // Chuyển hướng sang NextViewController
+        if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+            navigationController.pushViewController(nextViewController, animated: true)
+        }
+    }
     //Name section
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         return  UICollectionReusableView()

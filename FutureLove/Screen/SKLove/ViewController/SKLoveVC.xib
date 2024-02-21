@@ -84,6 +84,16 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="U6o-Kq-9SB">
+                    <rect key="frame" x="1" y="577" width="375.33333333333331" height="275"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Image (1)" translatesAutoresizingMaskIntoConstraints="NO" id="uqQ-A7-Wfo">
+                    <rect key="frame" x="40" y="529" width="278" height="226"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Image (2)" translatesAutoresizingMaskIntoConstraints="NO" id="Has-Yp-NVE">
+                    <rect key="frame" x="1.3333333333333286" y="635" width="183" height="209"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -103,8 +113,10 @@
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="top" secondItem="WLS-YY-YkE" secondAttribute="bottom" constant="-7" id="TfG-F5-pa8"/>
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="top" secondItem="3wE-pq-wvS" secondAttribute="bottom" constant="20" id="VdZ-SL-Vzi"/>
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="leading" secondItem="Bbg-Aq-iRn" secondAttribute="trailing" constant="60" id="WMz-wb-8pi"/>
+                <constraint firstItem="rCG-KA-eUi" firstAttribute="leading" secondItem="Has-Yp-NVE" secondAttribute="trailing" constant="11.666666666666686" id="Yzi-Po-PeD"/>
                 <constraint firstItem="67O-4F-qeJ" firstAttribute="leading" secondItem="rCG-KA-eUi" secondAttribute="trailing" constant="54" id="aee-be-rK5"/>
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="top" secondItem="Bbg-Aq-iRn" secondAttribute="bottom" constant="-8" id="bRi-NC-2Yt"/>
+                <constraint firstItem="uqQ-A7-Wfo" firstAttribute="top" secondItem="rCG-KA-eUi" secondAttribute="bottom" constant="221" id="cwh-0Z-V6C"/>
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="top" secondItem="Yc0-AH-QY0" secondAttribute="bottom" constant="-7" id="dFM-ny-f1m"/>
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="top" secondItem="N3b-eF-8Mj" secondAttribute="bottom" constant="187" id="dge-ye-o7e"/>
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="top" secondItem="oMI-Wy-jp0" secondAttribute="bottom" constant="148" id="enE-RW-ScL"/>
@@ -113,10 +125,12 @@
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="leading" secondItem="oMI-Wy-jp0" secondAttribute="trailing" constant="70" id="kme-FQ-Zv8"/>
                 <constraint firstItem="N3b-eF-8Mj" firstAttribute="leading" secondItem="rCG-KA-eUi" secondAttribute="trailing" constant="155" id="mNa-Gp-tc6"/>
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="top" secondItem="BHH-QE-oay" secondAttribute="bottom" constant="-35.000000000000057" id="mZK-zy-zTL"/>
+                <constraint firstItem="rCG-KA-eUi" firstAttribute="leading" secondItem="uqQ-A7-Wfo" secondAttribute="trailing" constant="-122" id="rwz-FO-vsv"/>
                 <constraint firstItem="TW5-dd-tkf" firstAttribute="top" secondItem="rCG-KA-eUi" secondAttribute="bottom" constant="18" id="sJa-93-L1g"/>
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="leading" secondItem="BHH-QE-oay" secondAttribute="trailing" constant="-35" id="uTY-zG-BzL"/>
                 <constraint firstItem="Yc0-AH-QY0" firstAttribute="leading" secondItem="rCG-KA-eUi" secondAttribute="trailing" constant="60" id="wK6-4A-sFC"/>
                 <constraint firstItem="rCG-KA-eUi" firstAttribute="leading" secondItem="3wE-pq-wvS" secondAttribute="trailing" constant="85" id="wo7-JO-Sy4"/>
+                <constraint firstItem="Has-Yp-NVE" firstAttribute="top" secondItem="rCG-KA-eUi" secondAttribute="bottom" constant="327" id="xgF-d2-Yw4"/>
                 <constraint firstItem="jPG-ae-OIA" firstAttribute="top" secondItem="NtD-ln-bUo" secondAttribute="top" id="zU1-A9-otU"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
@@ -128,6 +142,9 @@
         <image name="Frame 48097542" width="71" height="139"/>
         <image name="Frame 48097545" width="28" height="28"/>
         <image name="Frame 48097546" width="28" height="28"/>
+        <image name="Image" width="375" height="275"/>
+        <image name="Image (1)" width="278" height="226"/>
+        <image name="Image (2)" width="183" height="209"/>
         <image name="Plus_Icon_UIA" width="30" height="30"/>
         <image name="button" width="150" height="40"/>
         <image name="logohome" width="126" height="101"/>

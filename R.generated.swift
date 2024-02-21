@@ -998,6 +998,9 @@ struct _R {
       if UIKit.UIImage(named: "Frame 48097545", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Frame 48097545' is used in nib 'GenBabyVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "Frame 48097546", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Frame 48097546' is used in nib 'GenBabyVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "Frame 48097840", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Frame 48097840' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Image", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Image' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Image (1)", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Image (1)' is used in nib 'GenBabyVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Image (2)", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Image (2)' is used in nib 'GenBabyVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "Plus_Icon_UIA", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Plus_Icon_UIA' is used in nib 'GenBabyVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in nib 'GenBabyVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "background", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'background' is used in nib 'HeaderView', but couldn't be loaded.") }
@@ -1058,6 +1061,9 @@ struct _R {
       if UIKit.UIImage(named: "Frame 48097542", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Frame 48097542' is used in nib 'SKLoveVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "Frame 48097545", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Frame 48097545' is used in nib 'SKLoveVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "Frame 48097546", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Frame 48097546' is used in nib 'SKLoveVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Image", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Image' is used in nib 'SKLoveVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Image (1)", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Image (1)' is used in nib 'SKLoveVC', but couldn't be loaded.") }
+      if UIKit.UIImage(named: "Image (2)", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Image (2)' is used in nib 'SKLoveVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "Plus_Icon_UIA", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'Plus_Icon_UIA' is used in nib 'SKLoveVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in nib 'SKLoveVC', but couldn't be loaded.") }
       if UIKit.UIImage(named: "logohome", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'logohome' is used in nib 'SKLoveVC', but couldn't be loaded.") }
