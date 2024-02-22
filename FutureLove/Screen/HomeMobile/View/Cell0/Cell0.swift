@@ -55,14 +55,18 @@ class Cell0: UICollectionViewCell {
                 if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
                     navigationController.pushViewController(nextViewController, animated: true)
                 }
+            case "Video Swapped":
+                // Chuyển đến trang mới cho tính năng 2
+                let nextViewController = ListSwapResultVC()
+                if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+                    navigationController.pushViewController(nextViewController, animated: true)
+                }
             case "Baby Gen":
                 // Chuyển đến trang mới cho tính năng 2
                 let nextViewController = ListBabyVC()
                 if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
                     navigationController.pushViewController(nextViewController, animated: true)
                 }
-
-
 //            case "Tính năng 3":
 //                // Chuyển đến trang mới cho tính năng 3
 //                let vc = Feature3ViewController()
